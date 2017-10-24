@@ -6,13 +6,44 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
-		<title>COMPUTE</title>
+		<title>Compute</title>
 
 		<!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	</head>
 	<body>
-		<span id="money">$0</span>
-		<button type="button" onclick="raiseMoney(1)">Raise Money</button>
+		<div id="topDiv">
+			<h2>COMPUTE</h2>
+		</div id="topDiv">
+		<div id="display">
+			<div id="leftColumn">
+				<br>
+				<h3 style="display: inline-block;">Business&nbsp;&nbsp;&nbsp;</h3><button type="button" onclick="raiseMoolah(1)">Raise Money</button>
+				<hr>
+				<h4>Moolah: <span id="moolah">$0</span></h4>
+				<p>M/s: <span id="moolahPerSec">$0</span></p>
+				<p><button type="button" onclick="buy('adbot', 1)">AdBot</button>&nbsp;<span id="adbot">0</span></p>
+				<p>Cost: <span id="adbotCost">$10</span></p>
+			</div>
+			<div id="middleColumn">
+				<br>
+				<h3 style="display: inline-block;">Research</h3>
+				<hr>
+				<h4>Knowledge: <span id="knowledge">0</span></h4>
+				<p>K/s: <span id="knowledgePerSec">0</span></p>
+				<p><button type="button" onclick="buy('undergrad', 1)">Undergrad</button>&nbsp;<span id="undergrad">0</span></p>
+				<p>Cost: <span id="undergradCost">$50</span></p>
+			</div>
+			<div id="rightColumn">
+				<br>
+				<h3 style="display: inline-block;">Computing</h3>
+				<hr>
+				<h4>FLOPs: <span id="flops">0</span></h4>
+				<p>F/s: <span id="flopsPerSec">0</span></p>
+				<p><button type="button" onclick="buy('eniac', 1)">ENIAC</button>&nbsp;<span id="eniac">0</span></p>
+				<p>Cost: <span id="eniacCost">$500</span></p>
+			</div>
+		</div>
+		<script type="text/javascript" src="main.js"></script>
 	</body>
 </html>

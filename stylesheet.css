@@ -1,4 +1,46 @@
 body {
     margin: 0;
-    overflow-x: hidden;
+}
+
+h2 {
+  line-height: 10%;
+}
+
+h3 {
+  line-height: 10%;
+}
+
+h4 {
+  line-height: 10%;
+}
+
+p {
+  line-height: 10%;
+}
+
+hr {
+  width: 225px;
+}
+
+#topDiv {
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 100%;
+}
+
+#display {
+  width: 100%;
+}
+#display div {
+  width: 225px;
+  float: left;
+  margin-left: 10px;
+}
+
+#middleColumn {
+  display: none;
+}
+#rightColumn {
+  display: none;
 }
