@@ -1,32 +1,67 @@
 body {
     margin: 0;
-}
-
-h2 {
-  line-height: 10%;
+    overflow-x: hidden;
 }
 
 h3 {
-  line-height: 10%;
+  line-height: 30%;
+  font-family: "Lora", serif;
 }
 
 h4 {
-  line-height: 10%;
+  line-height: 30%;
+  font-family: "Lato", sans-serif;
 }
 
 p {
-  line-height: 10%;
+  line-height: 20%;
+  font-family: "Lato", sans-serif;
 }
 
 hr {
   width: 225px;
 }
 
-#topDiv {
+.button {
+  font-family: "Lato", sans-serif;
+}
+
+#console {
   float: left;
+  width: 100%;
   margin-top: 10px;
   margin-left: 10px;
-  width: 100%;
+  background: black;
+}
+p.console {
+    font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+    font-size: 18px;
+    color: white;
+    margin-top: 0;
+    line-height: 100%
+}
+p.consoleOld {
+    font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+    font-size: 14px;
+    color: grey;
+    margin-bottom: 0;
+    line-height: 130%
+}
+.pulsate {
+  -webkit-animation: pulsate .8s ease-out;
+  -webkit-animation-iteration-count: infinite; 
+  opacity: 0.0;
+}
+@-webkit-keyframes pulsate {
+    0% { 
+        opacity: 0.0;
+    }
+    50% { 
+        opacity: 1.0;
+    }
+    100% { 
+        opacity: 0.0;
+    }
 }
 
 #display {
@@ -38,9 +73,46 @@ hr {
   margin-left: 10px;
 }
 
-#middleColumn {
+#business div {
+  margin: 0;
+}
+#research {
   display: none;
 }
-#rightColumn {
+#research div {
+  margin: 0;
+}
+#computing {
   display: none;
+}
+#computing div {
+  margin: 0;
+}
+
+#projects div {
+  height: 150px;
+  width: 300px;
+  background: lightgray;
+  display: none;
+  margin-top: 10px;
+}
+#projects h4 {
+  padding-left: 5px;
+}
+#projects p {
+  line-height: 100%;
+  text-align: center;
+}
+
+#routerDiv {
+  display: none;
+  margin: 0;
+}
+#graduateDiv {
+  display: none;
+  margin: 0;
+}
+#appleIIDiv {
+  display: none;
+  margin: 0;
 }

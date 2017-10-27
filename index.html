@@ -8,42 +8,85 @@
 		
 		<title>Compute</title>
 
+		<link href="https://fonts.googleapis.com/css?family=Lato|Lora|Orbitron" rel="/stylesheet">
+
 		<!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheet.css">
 	</head>
 	<body>
-		<div id="topDiv">
-			<h2>COMPUTE</h2>
-		</div id="topDiv">
+		<div id="console">
+			<p class = "consoleOld"> 
+                <span>&nbsp;.&nbsp;</span><span id="readout5"></span><br>
+                <span>&nbsp;.&nbsp;</span><span id="readout4"></span><br>
+                <span>&nbsp;.&nbsp;</span><span id="readout3"></span><br>
+                <span>&nbsp;.&nbsp;</span><span id="readout2"></span><br>
+            </p>
+            <p class = "console"> 
+                <span>&nbsp;>&nbsp;</span><span id="readout1">COMPUTE</span><span id="cursor" class ="pulsate">|</span>
+            </p>
+		</div>
 		<div id="display">
-			<div id="leftColumn">
-				<br>
-				<h3 style="display: inline-block;">Business&nbsp;&nbsp;&nbsp;</h3><button type="button" onclick="raiseMoolah(1)">Raise Money</button>
+			<div id="business">
+				<h3 style="display: inline-block;">Business&nbsp;&nbsp;&nbsp;</h3><button type="button" class="button" onclick="player.raiseMoolah(1)">Raise Money</button>
 				<hr>
 				<h4>Moolah: <span id="moolah">$0</span></h4>
 				<p>M/s: <span id="moolahPerSec">$0</span></p>
-				<p><button type="button" onclick="buy('adbot', 1)">AdBot</button>&nbsp;<span id="adbot">0</span></p>
-				<p>Cost: <span id="adbotCost">$10</span></p>
+				<div id="adbotDiv" style="margin: 0;">
+					<p><button type="button" class="button" onclick="adbot.buy(1)">AdBot</button>&nbsp;<span id="adbot">0</span></p>
+					<p><span id="adbotInfo">$10, 1 M/s</span></p>
+				</div>
+				<div id="routerDiv">
+					<p><button type="button" class="button" onclick="router.buy(1)">Router</button>&nbsp;<span id="router">0</span></p>
+					<p><span id="routerInfo">$500, 10 M/s</span></p>
+				</div>
 			</div>
-			<div id="middleColumn">
-				<br>
+			<div id="research">
 				<h3 style="display: inline-block;">Research</h3>
 				<hr>
 				<h4>Knowledge: <span id="knowledge">0</span></h4>
 				<p>K/s: <span id="knowledgePerSec">0</span></p>
-				<p><button type="button" onclick="buy('undergrad', 1)">Undergrad</button>&nbsp;<span id="undergrad">0</span></p>
-				<p>Cost: <span id="undergradCost">$50</span></p>
+				<div id="undergradDiv">
+					<p><button type="button" class="button" onclick="undergrad.buy(1)">Undergrad</button>&nbsp;<span id="undergrad">0</span></p>
+					<p><span id="undergradInfo">$50, 1 K/s</span></p>
+				</div>
+				<div id="graduateDiv">
+					<p><button type="button" class="button" onclick="graduate.buy(1)">Graduate</button>&nbsp;<span id="graduate">0</span></p>
+					<p><span id="graduateInfo">$1000, 10 K/s</span></p>
+				</div>
 			</div>
-			<div id="rightColumn">
-				<br>
+			<div id="computing">
 				<h3 style="display: inline-block;">Computing</h3>
 				<hr>
 				<h4>FLOPs: <span id="flops">0</span></h4>
 				<p>F/s: <span id="flopsPerSec">0</span></p>
-				<p><button type="button" onclick="buy('eniac', 1)">ENIAC</button>&nbsp;<span id="eniac">0</span></p>
-				<p>Cost: <span id="eniacCost">$500</span></p>
+				<div id="eniacDiv">
+					<p><button type="button" class="button" onclick="eniac.buy(1)">ENIAC</button>&nbsp;<span id="eniac">0</span></p>
+					<p><span id="eniacInfo">$200, 5 M/s, 500 F/s</span></p>
+				</div>
+				<div id="appleIIDiv">
+					<p><button type="button" class="button" onclick="appleII.buy(1)">Apple II</button>&nbsp;<span id="appleII">0</span></p>
+					<p><span id="appleIIInfo">$5000, 50 M/s, 500 F/s</span></p>
+				</div>
+			</div>
+			<div id="projects">
+				<div id="investments" onclick="Investment.buyNext()">
+					<h4>Next Investment:</h4>
+					<p><span id="nextInvestment"></span></p>
+				</div>
+				<div id="people" onclick="Person.buyNext()">
+					<h4>Next Person:</h4>
+					<p><span id="nextPerson"></span></p>
+				</div>
+				<div id="theories" onclick="Theory.buyNext()">
+					<h4>Next Theory:</h4>
+					<p><span id="nextTheory"></span></p>
+				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="main.js"></script>
+		<script type="text/javascript" src="/Player.js"></script>
+		<script type="text/javascript" src="/Commodity.js"></script>
+		<script type="text/javascript" src="/Project.js"></script>
+		<script type="text/javascript" src="/System.js"></script>
+		<script type="text/javascript" src="/Main.js"></script>
 	</body>
 </html>
