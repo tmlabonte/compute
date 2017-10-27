@@ -26,6 +26,7 @@ hr {
   font-family: "Lato", sans-serif;
 }
 
+/* Thanks to Frank Lantz for the console and pulsate code, check out his game Universal Paperclips */
 #console {
   float: left;
   width: 100%;
@@ -45,8 +46,9 @@ p.consoleOld {
     font-size: 14px;
     color: grey;
     margin-bottom: 0;
-    line-height: 130%
+    line-height: 140%
 }
+/* Pulsate animation used in console */
 .pulsate {
   -webkit-animation: pulsate .8s ease-out;
   -webkit-animation-iteration-count: infinite; 
