@@ -150,7 +150,7 @@ class System {
 			document.getElementById("nextTheory").innerHTML = theories[nextTheoryIndex].getEffect();
 		}
 
-		//Update perSec display values of all commodities
+		//Update cost and perSec display values of all commodities
 		adbot.setInnerHtmlForInfo();
 		router.setInnerHtmlForInfo();
 		undergrad.setInnerHtmlForInfo();

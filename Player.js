@@ -22,28 +22,31 @@ class Player {
 	getMoolah() {
 		return this._moolah;
 	}
-	//Raises moolah by a number
+	//Raises moolah by a number and returns that number
 	raiseMoolah(num) {
 		this._moolah += num;
 		System.displayMoolah();
+		return num;
 	}
 	//Returns current knowledge
 	getKnowledge() {
 		return this._knowledge;
 	}
-	//Raises knowledge by a number
+	//Raises knowledge by a number and returns that number
 	raiseKnowledge(num) {
 		this._knowledge += num;
 		System.displayKnowledge();
+		return num;
 	}
 	//Returns current flops
 	getFlops() {
 		return this._flops;
 	}
-	//Raises flops by a number
+	//Raises flops by a number and returns that number
 	raiseFlops(num) {
 		this._flops += num;
 		System.displayFlops();
+		return num;
 	}
 
 	//Returns current moolah gained per second
