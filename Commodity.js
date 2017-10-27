@@ -147,7 +147,7 @@ class Research extends Commodity {
 
 	//Sets HTML for research information
 	setInnerHtmlForInfo() {
-		nextCost = Math.floor(this.getInitialCost() * Math.pow(1.11, this.getAmount()));
+		nextCost = Math.floor(this.getInitialCost() * Math.pow(1.1, this.getAmount()));
 		if (nextCost > 10000) {
 			nextCost = nextCost.toExponential(2);
 		}
