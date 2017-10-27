@@ -40,6 +40,7 @@ class Investment extends Project{
 		if (player.getKnowledge() >= this.getCost()) {
 			//Raises efficiency of an object based on investment index, displays message if appropriate
 			if (nextInvestmentIndex === 0) adbot.raiseEfficiency(this.getEfficiencyFactor());
+			if (nextInvestmentIndex === 1) router.raiseEfficiency(this.getEfficiencyFactor());
 
 			//Decreases knowledge, displays new knowledge, increments investment index
 			player.raiseKnowledge(-this.getCost());
@@ -66,6 +67,7 @@ class Person extends Project{
 				System.displayMessage("I used to know Larry. Good guy. Could use a haircut, though.");
 				undergrad.raiseEfficiency(this.getEfficiencyFactor());
 			}
+			if (nextPersonIndex === 1) graduate.raiseEfficiency(this.getEfficiencyFactor());
 
 			//Decreases knowledge, displays new knowledge, increments person index
 			player.raiseKnowledge(-this.getCost());
@@ -89,6 +91,7 @@ class Theory extends Project{
 		if (player.getKnowledge() >= this.getCost()) {
 			//Raises efficiency of an object based on theory index, displays message if appropriate
 			if (nextTheoryIndex === 0) eniac.raiseEfficiency(this.getEfficiencyFactor());
+			if (nextTheoryIndex === 1) appleII.raiseEfficiency(this.getEfficiencyFactor());
 
 			//Decreases knowledge, displays new knowledge, increments theory index
 			player.raiseKnowledge(-this.getCost());

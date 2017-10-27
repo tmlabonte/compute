@@ -1,5 +1,6 @@
 var currentCost = 0;
 var nextCost = 0;
+var tempAmount = 0;
 
 //Class to represent commodities
 //Parent class of Business, Research, and Computing
@@ -65,6 +66,8 @@ class Commodity {
 			//Display messages if appropriate
 			if (this.getName() === "adbot" && this.getAmount() === 1) System.displayMessage("You gotta start somewhere, I guess.");
 			if (this.getName() === "eniac" && this.getAmount() === 1) System.displayMessage("Old school, huh? Figures.");
+			//possible IPv6 is the future joke then when we travel to the future they're using IPv6
+			if (this.getName() === "router" && this.getAmount() === 1) System.displayMessage("IPv4 is for chumps. This message not sponsored by Cisco.");
 		}
 	}
 }
@@ -88,15 +91,27 @@ class Business extends Commodity {
 		return 0.1 * this.getInitialMoolahPerSec() * this.getAmount() * this.getEfficiency() * player.getHertz();
 	}
 	//Returns moolah gained by one business unit per second
-	//Used for display
+	//Used for display, uses scientific notation if necessary
 	getAdjustedMoolahPerAmountPerSec() {
-		return this.getInitialMoolahPerSec() * this.getEfficiency() * player.getHertz();
+		tempAmount = this.getInitialMoolahPerSec() * this.getEfficiency() * player.getHertz();
+		if (tempAmount >= 10000) {
+			return tempAmount.toExponential(2);
+		}
+		else {
+			return Math.round(tempAmount);
+		}
 	}
 
 	//Sets HTML for business information
 	setInnerHtmlForInfo() {
 		nextCost = Math.floor(this.getInitialCost() * Math.pow(1.1, this.getAmount()));
-		document.getElementById(this.getName() + "Info").innerHTML = "$" + System.prettify(nextCost) + ", " + System.prettify(this.getAdjustedMoolahPerAmountPerSec()) + "M/s";
+		if (nextCost > 10000) {
+			nextCost = nextCost.toExponential(2);
+		}
+		else {
+			nextCost = Math.ceil(nextCost);
+		}
+		document.getElementById(this.getName() + "Info").innerHTML = "$" + nextCost + ", " + this.getAdjustedMoolahPerAmountPerSec() + "M/s";
 	}
 }
 
@@ -119,15 +134,27 @@ class Research extends Commodity {
 		return 0.1 * this.getInitialKnowledgePerSec() * this.getAmount() * this.getEfficiency() * player.getHertz();
 	}
 	//Returns knowledge gained by one research unit per second
-	//Used for display
+	//Used for display, uses scientific notation if necessary
 	getAdjustedKnowledgePerAmountPerSec() {
-		return this.getInitialKnowledgePerSec() * this.getEfficiency() * player.getHertz();
+		tempAmount = this.getInitialKnowledgePerSec() * this.getEfficiency() * player.getHertz();
+		if (tempAmount >= 10000) {
+			return tempAmount.toExponential(2);
+		}
+		else {
+			return Math.round(tempAmount);
+		}
 	}
 
 	//Sets HTML for research information
 	setInnerHtmlForInfo() {
 		nextCost = Math.floor(this.getInitialCost() * Math.pow(1.11, this.getAmount()));
-		document.getElementById(this.getName() + "Info").innerHTML = "$" + System.prettify(nextCost) + ", " + System.prettify(this.getAdjustedKnowledgePerAmountPerSec()) + "K/s";
+		if (nextCost > 10000) {
+			nextCost = nextCost.toExponential(2);
+		}
+		else {
+			nextCost = Math.ceil(nextCost);
+		}
+		document.getElementById(this.getName() + "Info").innerHTML = "$" + nextCost + ", " + this.getAdjustedKnowledgePerAmountPerSec() + "K/s";
 	}
 }
 
@@ -151,9 +178,15 @@ class Computing extends Commodity{
 		return 0.1 * this.getInitialMoolahPerSec() * this.getAmount() * this.getEfficiency() * player.getHertz();
 	}
 	//Returns moolah gained by one computing unit per second
-	//Used for display
+	//Used for display, uses scientific notation if necessary
 	getAdjustedMoolahPerAmountPerSec() {
-		return this.getInitialMoolahPerSec() * this.getEfficiency() * player.getHertz();
+		tempAmount = this.getInitialMoolahPerSec() * this.getEfficiency() * player.getHertz();
+		if (tempAmount >= 10000) {
+			return tempAmount.toExponential(2);
+		}
+		else {
+			return Math.round(tempAmount);
+		}
 	}
 
 	//Returns initial flops per second
@@ -168,12 +201,24 @@ class Computing extends Commodity{
 	//Returns flops gained by one computing unit per second
 	//Used for display
 	getAdjustedFlopsPerAmountPerSec() {
-		return this.getInitialFlopsPerSec() * this.getEfficiency() * player.getHertz();
+		tempAmount = this.getInitialFlopsPerSec() * this.getEfficiency() * player.getHertz();
+		if (tempAmount >= 10000) {
+			return tempAmount.toExponential(2);
+		}
+		else {
+			return Math.round(tempAmount);
+		}
 	}
 
 	//Sets HTML for computing information
 	setInnerHtmlForInfo() {
 		nextCost = Math.floor(this.getInitialCost() * Math.pow(1.1, this.getAmount()));
-		document.getElementById(this.getName() + "Info").innerHTML = "$" + System.prettify(nextCost) + ", " + System.prettify(this.getAdjustedMoolahPerAmountPerSec()) + " M/s, " + System.prettify(this.getAdjustedFlopsPerAmountPerSec()) + " F/s";
+		if (nextCost > 10000) {
+			nextCost = nextCost.toExponential(2);
+		}
+		else {
+			nextCost = Math.ceil(nextCost);
+		}
+		document.getElementById(this.getName() + "Info").innerHTML = "$" + nextCost + ", " + this.getAdjustedMoolahPerAmountPerSec() + " M/s, " + this.getAdjustedFlopsPerAmountPerSec() + " F/s";
 	}
 }

@@ -4,15 +4,15 @@
 class System {
 	//Eliminates unnecessary decimals
 	static prettify(input) {
-    	var output = Math.round(input * 1000000) / 1000000;
+    	var output = Math.floor(input * 100) / 100;
 		return output;
 	}
 
 	//Displays player moolah
 	//Automatically converts to scientific notation if necessary
 	static displayMoolah() {
-		if (player.getMoolah() >= 1000000) {
-			document.getElementById("moolah").innerHTML = "$" + System.prettify(player.getMoolah()).toExponential();
+		if (player.getMoolah() >= 10000) {
+			document.getElementById("moolah").innerHTML = "$" + player.getMoolah().toExponential(3);
 		}
 		else {
 			document.getElementById("moolah").innerHTML = "$" + System.prettify(player.getMoolah());
@@ -21,8 +21,8 @@ class System {
 	//Displays player knowledge
 	//Automatically converts to scientific notation if necessary
 	static displayKnowledge() {
-		if (player.getKnowledge() >= 1000000) {
-			document.getElementById("knowledge").innerHTML = System.prettify(player.getKnowledge()).toExponential();
+		if (player.getKnowledge() >= 10000) {
+			document.getElementById("knowledge").innerHTML = player.getKnowledge().toExponential(3);
 		}
 		else {
 			document.getElementById("knowledge").innerHTML = System.prettify(player.getKnowledge());
@@ -31,8 +31,8 @@ class System {
 	//Displays player flops
 	//Automatically converts to scientific notation if necessary
 	static displayFlops() {
-		if (player.getFlops() >= 1000000) {
-			document.getElementById("flops").innerHTML = System.prettify(player.getFlops()).toExponential();
+		if (player.getFlops() >= 10000) {
+			document.getElementById("flops").innerHTML = player.getFlops().toExponential(3);
 		}
 		else {
 			document.getElementById("flops").innerHTML = System.prettify(player.getFlops());
@@ -41,8 +41,8 @@ class System {
 	//Displays player moolah gained per second
 	//Automatically converts to scientific notation if necessary
 	static displayMoolahPerSec() {
-		if (player.getMoolahPerSec() >= 1000000) {
-			document.getElementById("moolahPerSec").innerHTML = "$" + System.prettify(player.getMoolahPerSec()).toExponential();
+		if (player.getMoolahPerSec() >= 10000) {
+			document.getElementById("moolahPerSec").innerHTML = "$" + player.getMoolahPerSec().toExponential(3);
 		}
 		else {
 			document.getElementById("moolahPerSec").innerHTML = "$" + System.prettify(player.getMoolahPerSec());
@@ -51,8 +51,8 @@ class System {
 	//Displays player knowledge gained per second
 	//Automatically converts to scientific notation if necessary
 	static displayKnowledgePerSec() {
-		if (player.getKnowledgePerSec() >= 1000000) {
-			document.getElementById("knowledgePerSec").innerHTML = System.prettify(player.getKnowledgePerSec()).toExponential();
+		if (player.getKnowledgePerSec() >= 10000) {
+			document.getElementById("knowledgePerSec").innerHTML = player.getKnowledgePerSec().toExponential(3);
 		}
 		else {
 			document.getElementById("knowledgePerSec").innerHTML = System.prettify(player.getKnowledgePerSec());
@@ -61,8 +61,8 @@ class System {
 	//Displays player flops gained per second
 	//Automatically converts to scientific notation if necessary
 	static displayFlopsPerSec() {
-		if (player.getFlopsPerSec() >= 1000000) {
-			document.getElementById("flopsPerSec").innerHTML = System.prettify(player.getFlopsPerSec()).toExponential();
+		if (player.getFlopsPerSec() >= 10000) {
+			document.getElementById("flopsPerSec").innerHTML = player.getFlopsPerSec().toExponential(3);
 		}
 		else {
 			document.getElementById("flopsPerSec").innerHTML = System.prettify(player.getFlopsPerSec());
