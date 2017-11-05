@@ -39,12 +39,18 @@ class Investment extends Project{
 		//Checks if the player has enough knowledge
 		if (player.getKnowledge() >= this.getCost()) {
 			//Raises efficiency of an object based on investment index, displays message if appropriate
-			if (nextInvestmentIndex === 0) adbot.raiseEfficiency(this.getEfficiencyFactor());
+			if (nextInvestmentIndex === 0) {
+				System.displayMessage("Let's not go near that whole Russia thing.");
+				adbot.raiseEfficiency(this.getEfficiencyFactor());
+			}
 			if (nextInvestmentIndex === 1) {
 				System.displayMessage("Feels good to be back online.");
 				router.raiseEfficiency(this.getEfficiencyFactor());
 			}
-			if (nextInvestmentIndex === 2) stockbot.raiseEfficiency(this.getEfficiencyFactor());
+			if (nextInvestmentIndex === 2) {
+				System.displayMessage("Crime? What crime?");
+				stockbot.raiseEfficiency(this.getEfficiencyFactor());
+			}
 			if (nextInvestmentIndex === 3) cracker.raiseEfficiency(this.getEfficiencyFactor());
 			if (nextInvestmentIndex === 4) algorithm.raiseEfficiency(this.getEfficiencyFactor());
 
@@ -74,8 +80,14 @@ class Person extends Project{
 				undergrad.raiseEfficiency(this.getEfficiencyFactor());
 			}
 			if (nextPersonIndex === 1) graduate.raiseEfficiency(this.getEfficiencyFactor());
-			if (nextPersonIndex === 2) postdoc.raiseEfficiency(this.getEfficiencyFactor());
-			if (nextPersonIndex === 3) prof.raiseEfficiency(this.getEfficiencyFactor());
+			if (nextPersonIndex === 2) {
+				System.displayMessage("The solution is 95% caffeine, 5% LSD. Why? Because I thought it would be funny.");
+				postdoc.raiseEfficiency(this.getEfficiencyFactor());
+			}
+			if (nextPersonIndex === 3) {
+				System.displayMessage("Breaking news: world of academia rejoices.");
+				prof.raiseEfficiency(this.getEfficiencyFactor());
+			}
 			if (nextPersonIndex === 4) nobel.raiseEfficiency(this.getEfficiencyFactor());
 
 			//Decreases knowledge, displays new knowledge, increments person index
@@ -105,8 +117,18 @@ class Theory extends Project{
 				apple.raiseEfficiency(this.getEfficiencyFactor());
 			}
 			if (nextTheoryIndex === 2) tsdelta.raiseEfficiency(this.getEfficiencyFactor());
-			if (nextTheoryIndex === 3) tianhe.raiseEfficiency(this.getEfficiencyFactor());
-			if (nextTheoryIndex === 4) dwave.raiseEfficiency(this.getEfficiencyFactor());
+			if (nextTheoryIndex === 3) {
+				System.displayMessage("This tech is commonly known as 'Tofu'. I swear I'm not making this up.");
+				tianhe.raiseEfficiency(this.getEfficiencyFactor());
+			}
+			if (nextTheoryIndex === 4) {
+				System.displayMessage("Had to change the name because we got sued for calling it 'Absolut Zero'.");
+				dwave.raiseEfficiency(this.getEfficiencyFactor());
+			}
+			if (nextTheoryIndex === 5) {
+				System.displayMessage("Clock is set for October 21, 3015. Here we go!");
+				dwave.raiseEfficiency(this.getEfficiencyFactor());
+			}
 
 			//Decreases knowledge, displays new knowledge, increments theory index
 			player.raiseKnowledge(-this.getCost());

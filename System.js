@@ -215,12 +215,12 @@ class System {
 		if (player.getFlops() >= 5e6 && document.getElementById("stockbotDiv").style.display === "") {
 			document.getElementById("stockbotDiv").style.display = "block";
 		}
-		//Display cracker when player reaches 300,000,000 flops
-		if (player.getFlops() >= 3e8 && document.getElementById("crackerDiv").style.display === "") {
+		//Display cracker when player reaches 200,000,000 flops
+		if (player.getFlops() >= 2e8 && document.getElementById("crackerDiv").style.display === "") {
 			document.getElementById("crackerDiv").style.display = "block";
 		}
-		//Display algorithm when player reaches 30,000,000,000 flops
-		if (player.getFlops() >= 3e10 && document.getElementById("algorithmDiv").style.display === "") {
+		//Display algorithm when player reaches 1,500,000,000 flops
+		if (player.getFlops() >= 1.5e9 && document.getElementById("algorithmDiv").style.display === "") {
 			document.getElementById("algorithmDiv").style.display = "block";
 		}
 
@@ -232,12 +232,12 @@ class System {
 		if (player.getFlops() >= 1.5e7 && document.getElementById("postdocDiv").style.display === "") {
 			document.getElementById("postdocDiv").style.display = "block";
 		}
-		//Display prof when player reaches 1,500,000,000 flops
-		if (player.getFlops() >= 1.5e9 && document.getElementById("profDiv").style.display === "") {
+		//Display prof when player reaches 250,000,000 flops
+		if (player.getFlops() >= 2.5e8 && document.getElementById("profDiv").style.display === "") {
 			document.getElementById("profDiv").style.display = "block";
 		}
-		//Display nobel when player reaches 150,000,000,000 flops
-		if (player.getFlops() >= 1.5e11 && document.getElementById("nobelDiv").style.display === "") {
+		//Display nobel when player reaches 2,500,000,000 flops
+		if (player.getFlops() >= 2.5e9 && document.getElementById("nobelDiv").style.display === "") {
 			document.getElementById("nobelDiv").style.display = "block";
 		}
 
@@ -249,12 +249,12 @@ class System {
 		if (player.getFlops() >= 6e7 && document.getElementById("tsdeltaDiv").style.display === "") {
 			document.getElementById("tsdeltaDiv").style.display = "block";
 		}
-		//Display tianhe when player reaches 6,000,000,000 flops
-		if (player.getFlops() >= 6e9 && document.getElementById("tianheDiv").style.display === "") {
+		//Display tianhe when player reaches 350,000,000 flops
+		if (player.getFlops() >= 3.5e8 && document.getElementById("tianheDiv").style.display === "") {
 			document.getElementById("tianheDiv").style.display = "block";
 		}
-		//Display dwave when player reaches 600,000,000,000 flops
-		if (player.getFlops() >= 6e11 && document.getElementById("dwaveDiv").style.display === "") {
+		//Display dwave when player reaches 5,000,000,000 flops
+		if (player.getFlops() >= 5e9 && document.getElementById("dwaveDiv").style.display === "") {
 			document.getElementById("dwaveDiv").style.display = "block";
 		}
 

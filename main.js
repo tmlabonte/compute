@@ -5,20 +5,20 @@ var player = new Player();
 var adbot = new Business("adbot", 10, 1);
 var router = new Business("router", 500, 10);
 var stockbot = new Business("stockbot", 25000, 100);
-var cracker = new Business("cracker", 500000, 1000);
-var algorithm = new Business("algorithm", 1.75e6, 10000);
+var cracker = new Business("cracker", 375000, 1000);
+var algorithm = new Business("algorithm", 1.5e6, 10000);
 
 var undergrad = new Research("undergrad", 50, 1);
 var graduate = new Research("graduate", 2500, 10);
 var postdoc = new Research("postdoc", 75000, 100);
-var prof = new Research("prof", 750000, 1000);
-var nobel = new Research("nobel", 3e6, 10000);
+var prof = new Research("prof", 600000, 1000);
+var nobel = new Research("nobel", 2e6, 10000);
 
 var eniac = new Computing("eniac", 200, 5, 500);
 var apple = new Computing("apple", 10000, 50, 5000);
 var tsdelta = new Computing("tsdelta", 250000, 500, 50000);
-var tianhe = new Computing("tianhe", 1.25e6, 5000, 500000);
-var dwave = new Computing("dwave", 5e6, 50000, 5e6);
+var tianhe = new Computing("tianhe", 1e6, 5000, 500000);
+var dwave = new Computing("dwave", 3e6, 50000, 5e6);
 
 //Project instantiation	
 //Projects are added to an array as they are created
@@ -39,9 +39,10 @@ var people = [per0, per1, per2, per3, per4];
 var the0 = new Theory(6000, "Magnetic Memory<br><br>ENIAC efficiency x3<br><br>6,000 Knowledge", 3);
 var the1 = new Theory(150000, "Zip GSX Accelerator Card<br><br>Apple II efficiency x3<br><br>150,000 Knowledge", 3);
 var the2 = new Theory(750000, "PUMA Lightweight Kernel<br><br>TS Delta efficiency x3<br><br>750,000 Knowledge", 3);
-var the3 = new Theory(4e6, "Torus Fusion (Tofu) Interconnect<br><br>Tianhe 1A efficiency x3<br><br>4.00e+6 Knowledge", 3);
+var the3 = new Theory(4e6, "Torus Fusion Interconnect<br><br>Tianhe 1A efficiency x3<br><br>4.00e+6 Knowledge", 3);
 var the4 = new Theory(1e7, "Cryogenic Capacitor<br><br>D-Wave 2000Q efficiency x3<br><br>1.00e+7 Knowledge", 3);
-var theories = [the0, the1, the2, the3, the4];
+var the5 = new Theory(3e7, "Time Travel<br><br>???<br><br>3.00e+7 Knowledge", 0);
+var theories = [the0, the1, the2, the3, the4, the5];
 
 //Window refreshes every 0.1 seconds with updated values and displays; also updates data
 window.setInterval(function(){

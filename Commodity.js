@@ -20,7 +20,7 @@ class Commodity {
 		this._msgMap = {
 			"adbot": "You gotta start somewhere, I guess.",
 			"router": "IPv4 is for chumps. This message not sponsored by Cisco.",
-			"stockbot": "It's not a free market when I'm around.",
+			"stockbot": "'Free market' is relative.",
 			"cracker": "",
 			"algorithm": "What does it do? Whatever you want.",
 			"undergrad": "",
@@ -32,7 +32,7 @@ class Commodity {
 			"apple": "Color by Technicolor.",
 			"tsdelta": "",
 			"tianhe": "River of the Heavens is a sweet name for a supercomputer.",
-			"dwave": ""
+			"dwave": "WE'RE GOING QUANTUM BABY"
 		};
 	}
 
