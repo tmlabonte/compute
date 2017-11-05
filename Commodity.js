@@ -16,21 +16,22 @@ class Commodity {
 		//Initial efficiency (increased by projects)
 		this._efficiency = 1;
 
+		//List of all possible messages for commodities
 		this._msgMap = {
 			"adbot": "You gotta start somewhere, I guess.",
 			"router": "IPv4 is for chumps. This message not sponsored by Cisco.",
-			"stockbot": "",
+			"stockbot": "It's not a free market when I'm around.",
 			"cracker": "",
-			"algorithm": "",
+			"algorithm": "What does it do? Whatever you want.",
 			"undergrad": "",
-			"graduate": "",
+			"graduate": "Graduate school: Less cute girls, more old men.",
 			"postdoc": "",
-			"prof": "",
+			"prof": "I hope he's tenured.",
 			"nobel": "",
 			"eniac": "Old school, huh? Figures.",
-			"apple": "",
+			"apple": "Color by Technicolor.",
 			"tsdelta": "",
-			"tianhe": "",
+			"tianhe": "River of the Heavens is a sweet name for a supercomputer.",
 			"dwave": ""
 		};
 	}

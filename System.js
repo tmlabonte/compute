@@ -81,6 +81,7 @@ class System {
 	    document.getElementById("readout1").innerHTML = msg;
 	}
 
+	//Populates a column of data for every 0.1 seconds
 	static updateData() {
 		var nameRowObj = player.getDataRow(0);
 		nameRowObj[currentColumn] = currentColumn;
@@ -210,8 +211,8 @@ class System {
 		if (player.getFlops() >= 30000 && document.getElementById("routerDiv").style.display === "") {
 			document.getElementById("routerDiv").style.display = "block";
 		}
-		//Display stockbot when player reaches 3,000,000 flops
-		if (player.getFlops() >= 3e6 && document.getElementById("stockbotDiv").style.display === "") {
+		//Display stockbot when player reaches 5,000,000 flops
+		if (player.getFlops() >= 5e6 && document.getElementById("stockbotDiv").style.display === "") {
 			document.getElementById("stockbotDiv").style.display = "block";
 		}
 		//Display cracker when player reaches 300,000,000 flops

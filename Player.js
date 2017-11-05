@@ -17,6 +17,9 @@ class Player {
 		this._nextHertzMsgAllowed = false;
 		this._nextHertzMsgCount = 1;
 
+		//Data for analysis
+		//Efficiency of commodity collected every 0.1 sec
+		//Use in bot player?
 		this._data = [
 			{"0":"Name/Amount"}, 
 			{"0":"Adbot"}, 
@@ -163,12 +166,15 @@ class Player {
 		this._flopsPerSec = 10 * flopsRaised;
 	}
 
+	//Returns data
 	getData() {
 		return this._data;
 	}
+	//Returns a certain row of the data
 	getDataRow(rowNum) {
 		return this.getData()[rowNum];
 	}
+	//Exports data as an XLSX file
 	downloadData() {
 		System.displayMessage("I hope you know what you're doing.");
     	var opt = [{sheetid:'Data',header:true}];
