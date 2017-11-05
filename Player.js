@@ -16,6 +16,20 @@ class Player {
 		this._hertz = 1;
 		this._nextHertzMsgAllowed = false;
 		this._nextHertzMsgCount = 1;
+
+		this._data = [
+			{"0":"Name/Amount"}, 
+			{"0":"Adbot"}, 
+			{"0":"Router"}, 
+			{"0":"Stockbot"}, 
+			{"0":"Cracker"}, 
+			{"0":"Algorithm"}, 
+			{"0":"Eniac"}, 
+			{"0":"Apple"}, 
+			{"0":"Tsdelta"}, 
+			{"0":"Tianhe"}, 
+			{"0":"Dwave"}
+		];
 	}
 
 	//Returns current moolah
@@ -82,14 +96,14 @@ class Player {
 	}
 	//Checks if the next hertz increase is allowed, executes if it is
 	nextHertzUpdate() {
-		//Hertz is increased every 300,000e^(number of the next hertz message) flops
-		if (this.getFlops() >= 300000 * Math.exp(this.getNextHertzMsgCount())) {
+		//Hertz is increased every 500,000 * (3^(number of the next hertz message)) flops
+		if (this.getFlops() >= 500000 * Math.pow(3, this.getNextHertzMsgCount())) {
 			this._nextHertzMsgAllowed = true;
 		}
 		//Increases hertz by 5%, displays value, updates check variables
 		if (this.getNextHertzMsgAllowed() === true) {
 			this._hertz += this._hertz * 0.05;
-			System.displayMessage("Hertz increased to " + System.prettify(this.getHertz()) + ". Global production increased by 5%.");
+			System.displayMessage("Hertz increased to " + (Math.round(this.getHertz() * 100) / 100) + ". Global production increased by 5%.");
 			this._nextHertzMsgAllowed = false;
 			this._nextHertzMsgCount++;
 		}
@@ -102,10 +116,16 @@ class Player {
  		//Moolah is raised by the moolah per decisecond of business commodities
 		moolahRaised += this.raiseMoolah(adbot.getAdjustedMoolahPerDeciSec());
 		moolahRaised += this.raiseMoolah(router.getAdjustedMoolahPerDeciSec());
+		moolahRaised += this.raiseMoolah(stockbot.getAdjustedMoolahPerDeciSec());
+		moolahRaised += this.raiseMoolah(cracker.getAdjustedMoolahPerDeciSec());
+		moolahRaised += this.raiseMoolah(algorithm.getAdjustedMoolahPerDeciSec());
 
 		//Moolah is raised by the moolah per decisecond of computing commodities
 		moolahRaised += this.raiseMoolah(eniac.getAdjustedMoolahPerDeciSec());
-		moolahRaised += this.raiseMoolah(appleII.getAdjustedMoolahPerDeciSec());
+		moolahRaised += this.raiseMoolah(apple.getAdjustedMoolahPerDeciSec());
+		moolahRaised += this.raiseMoolah(tsdelta.getAdjustedMoolahPerDeciSec());
+		moolahRaised += this.raiseMoolah(tianhe.getAdjustedMoolahPerDeciSec());
+		moolahRaised += this.raiseMoolah(dwave.getAdjustedMoolahPerDeciSec());
 
 		//Displays moolah per second
 		this._moolahPerSec = 10 * moolahRaised;
@@ -117,6 +137,10 @@ class Player {
 		//Knowledge is raised by the knowledge per decisecond of research commodities
 		knowledgeRaised += this.raiseKnowledge(undergrad.getAdjustedKnowledgePerDeciSec());
 		knowledgeRaised += this.raiseKnowledge(graduate.getAdjustedKnowledgePerDeciSec());
+		knowledgeRaised += this.raiseKnowledge(postdoc.getAdjustedKnowledgePerDeciSec());
+		knowledgeRaised += this.raiseKnowledge(prof.getAdjustedKnowledgePerDeciSec());
+		knowledgeRaised += this.raiseKnowledge(nobel.getAdjustedKnowledgePerDeciSec());
+
 
 		//Displays knowledge per second
 		this._knowledgePerSec = 10 * knowledgeRaised;
@@ -127,12 +151,27 @@ class Player {
 
 		//Flops is raised by the flops per decisecond of computing commodities
 		flopsRaised += this.raiseFlops(eniac.getAdjustedFlopsPerDeciSec());
-		flopsRaised += this.raiseFlops(appleII.getAdjustedFlopsPerDeciSec());
+		flopsRaised += this.raiseFlops(apple.getAdjustedFlopsPerDeciSec());
+		flopsRaised += this.raiseFlops(tsdelta.getAdjustedFlopsPerDeciSec());
+		flopsRaised += this.raiseFlops(tianhe.getAdjustedFlopsPerDeciSec());
+		flopsRaised += this.raiseFlops(dwave.getAdjustedFlopsPerDeciSec());
 
 		//Checks for next hertz update, and if the flops goal is reached, increases hertz by 5%
 		this.nextHertzUpdate();
 
 		//Displays flops per second
 		this._flopsPerSec = 10 * flopsRaised;
+	}
+
+	getData() {
+		return this._data;
+	}
+	getDataRow(rowNum) {
+		return this.getData()[rowNum];
+	}
+	downloadData() {
+		System.displayMessage("I hope you know what you're doing.");
+    	var opt = [{sheetid:'Data',header:true}];
+    	var res = alasql('SELECT * INTO XLSX("datasheet.xlsx",?) FROM ?', [opt,[player.getData()]]);
 	}
 }

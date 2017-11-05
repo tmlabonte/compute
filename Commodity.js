@@ -1,7 +1,3 @@
-var currentCost = 0;
-var nextCost = 0;
-var tempAmount = 0;
-
 //Class to represent commodities
 //Parent class of Business, Research, and Computing
 class Commodity {
@@ -11,10 +7,32 @@ class Commodity {
 		this._name = name;
 		//Initial cost
 		this._initialCost = initialCost;
+		//Current cost
+		this._currentCost = initialCost;
+		//Next cost
+		this._nextCost = initialCost;
 		//Initial amount
 		this._amount = 0;
 		//Initial efficiency (increased by projects)
 		this._efficiency = 1;
+
+		this._msgMap = {
+			"adbot": "You gotta start somewhere, I guess.",
+			"router": "IPv4 is for chumps. This message not sponsored by Cisco.",
+			"stockbot": "",
+			"cracker": "",
+			"algorithm": "",
+			"undergrad": "",
+			"graduate": "",
+			"postdoc": "",
+			"prof": "",
+			"nobel": "",
+			"eniac": "Old school, huh? Figures.",
+			"apple": "",
+			"tsdelta": "",
+			"tianhe": "",
+			"dwave": ""
+		};
 	}
 
 	//Returns name
@@ -24,6 +42,22 @@ class Commodity {
 	//Returns initial cost
 	getInitialCost() {
 		return this._initialCost;
+	}
+	//Returns current cost
+	getCurrentCost() {
+		return this._currentCost;
+	}
+	//Sets current cost
+	setCurrentCost(cost) {
+		this._currentCost = cost;
+	}
+	//Returns next cost
+	getNextCost() {
+		return this._nextCost;
+	}
+	//Sets next cost
+	setNextCost(cost) {
+		this._nextCost = cost;
 	}
 	//Returns current amount
 	getAmount() {
@@ -41,33 +75,35 @@ class Commodity {
 	raiseEfficiency(factor) {
 		this._efficiency *= factor;
 	}
+	getMsgMap() {
+		return this._msgMap;
+	}
 	//Sets HTML of commodity information
 	setInnerHtmlForInfo() {
 		//This is an abstract method
 	}
 
 	//Calculates cost of a commodity, and if the player has enough moolah, buys a number of them
+	//WILL REQUIRE UPDATES FOR EXPANDED PARAMETER FUNCTIONALITY
 	buy(num) {
 		//Cost of a commodity is the floor of the initial cost times 1.1^(amount of the commodity)
 		//Price increases slowly at first, but then faster and faster
-		currentCost = Math.floor(this.getInitialCost() * Math.pow(1.1, this.getAmount()));
+		this.setCurrentCost(Math.floor(this.getInitialCost() * Math.pow(1.1, this.getAmount())));
 
 		//If the player has enough moolah, make the purchase
-		if (player.getMoolah() >= currentCost) {
+		if (player.getMoolah() >= this.getCurrentCost()) {
 			//Increase amount and decrease moolah
 			this.raiseAmount(num);
-			player.raiseMoolah(-currentCost);
+			player.raiseMoolah(-this.getCurrentCost());
 
 			//Update displays
 			document.getElementById(this.getName()).innerHTML = this.getAmount();
 			System.displayMoolah();
 			this.setInnerHtmlForInfo();
 
-			//Display messages if appropriate
-			if (this.getName() === "adbot" && this.getAmount() === 1) System.displayMessage("You gotta start somewhere, I guess.");
-			if (this.getName() === "eniac" && this.getAmount() === 1) System.displayMessage("Old school, huh? Figures.");
-			//possible IPv6 is the future joke then when we travel to the future they're using IPv6
-			if (this.getName() === "router" && this.getAmount() === 1) System.displayMessage("IPv4 is for chumps. This message not sponsored by Cisco.");
+			//Display messages and update datasheet cells if appropriate
+			var msg = this.getMsgMap()[this.getName()];
+			if (msg !== "" && this.getAmount() === 1) System.displayMessage(msg);
 		}
 	}
 }
@@ -93,8 +129,8 @@ class Business extends Commodity {
 	//Returns moolah gained by one business unit per second
 	//Used for display, uses scientific notation if necessary
 	getAdjustedMoolahPerAmountPerSec() {
-		tempAmount = this.getInitialMoolahPerSec() * this.getEfficiency() * player.getHertz();
-		if (tempAmount >= 10000) {
+		var tempAmount = this.getInitialMoolahPerSec() * this.getEfficiency() * player.getHertz();
+		if (tempAmount >= 1000000) {
 			return tempAmount.toExponential(2);
 		}
 		else {
@@ -104,14 +140,14 @@ class Business extends Commodity {
 
 	//Sets HTML for business information
 	setInnerHtmlForInfo() {
-		nextCost = Math.floor(this.getInitialCost() * Math.pow(1.1, this.getAmount()));
-		if (nextCost > 10000) {
-			nextCost = nextCost.toExponential(2);
+		this.setNextCost(Math.floor(this.getInitialCost() * Math.pow(1.1, this.getAmount())));
+		if (this.getNextCost() > 1000000) {
+			this.setNextCost(this.getNextCost().toExponential(2));
 		}
 		else {
-			nextCost = Math.ceil(nextCost);
+			this.setNextCost(Math.ceil(this.getNextCost()));
 		}
-		document.getElementById(this.getName() + "Info").innerHTML = "$" + nextCost + ", " + this.getAdjustedMoolahPerAmountPerSec() + "M/s";
+		document.getElementById(this.getName() + "Info").innerHTML = "$" + this.getNextCost() + ", " + this.getAdjustedMoolahPerAmountPerSec() + "M/s";
 	}
 }
 
@@ -136,8 +172,8 @@ class Research extends Commodity {
 	//Returns knowledge gained by one research unit per second
 	//Used for display, uses scientific notation if necessary
 	getAdjustedKnowledgePerAmountPerSec() {
-		tempAmount = this.getInitialKnowledgePerSec() * this.getEfficiency() * player.getHertz();
-		if (tempAmount >= 10000) {
+		var tempAmount = this.getInitialKnowledgePerSec() * this.getEfficiency() * player.getHertz();
+		if (tempAmount >= 1000000) {
 			return tempAmount.toExponential(2);
 		}
 		else {
@@ -147,14 +183,14 @@ class Research extends Commodity {
 
 	//Sets HTML for research information
 	setInnerHtmlForInfo() {
-		nextCost = Math.floor(this.getInitialCost() * Math.pow(1.1, this.getAmount()));
-		if (nextCost > 10000) {
-			nextCost = nextCost.toExponential(2);
+		this.setNextCost(Math.floor(this.getInitialCost() * Math.pow(1.1, this.getAmount())));
+		if (this.getNextCost() > 1000000) {
+			this.setNextCost(this.getNextCost().toExponential(2));
 		}
 		else {
-			nextCost = Math.ceil(nextCost);
+			this.setNextCost(Math.ceil(this.getNextCost()));
 		}
-		document.getElementById(this.getName() + "Info").innerHTML = "$" + nextCost + ", " + this.getAdjustedKnowledgePerAmountPerSec() + "K/s";
+		document.getElementById(this.getName() + "Info").innerHTML = "$" + this.getNextCost() + ", " + this.getAdjustedKnowledgePerAmountPerSec() + "K/s";
 	}
 }
 
@@ -180,8 +216,8 @@ class Computing extends Commodity{
 	//Returns moolah gained by one computing unit per second
 	//Used for display, uses scientific notation if necessary
 	getAdjustedMoolahPerAmountPerSec() {
-		tempAmount = this.getInitialMoolahPerSec() * this.getEfficiency() * player.getHertz();
-		if (tempAmount >= 10000) {
+		var tempAmount = this.getInitialMoolahPerSec() * this.getEfficiency() * player.getHertz();
+		if (tempAmount >= 1000000) {
 			return tempAmount.toExponential(2);
 		}
 		else {
@@ -201,8 +237,8 @@ class Computing extends Commodity{
 	//Returns flops gained by one computing unit per second
 	//Used for display
 	getAdjustedFlopsPerAmountPerSec() {
-		tempAmount = this.getInitialFlopsPerSec() * this.getEfficiency() * player.getHertz();
-		if (tempAmount >= 10000) {
+		var tempAmount = this.getInitialFlopsPerSec() * this.getEfficiency() * player.getHertz();
+		if (tempAmount >= 1000000) {
 			return tempAmount.toExponential(2);
 		}
 		else {
@@ -212,13 +248,13 @@ class Computing extends Commodity{
 
 	//Sets HTML for computing information
 	setInnerHtmlForInfo() {
-		nextCost = Math.floor(this.getInitialCost() * Math.pow(1.1, this.getAmount()));
-		if (nextCost > 10000) {
-			nextCost = nextCost.toExponential(2);
+		this.setNextCost(Math.floor(this.getInitialCost() * Math.pow(1.1, this.getAmount())));
+		if (this.getNextCost() > 1000000) {
+			this.setNextCost(this.getNextCost().toExponential(2));
 		}
 		else {
-			nextCost = Math.ceil(nextCost);
+			this.setNextCost(Math.ceil(this.getNextCost()));
 		}
-		document.getElementById(this.getName() + "Info").innerHTML = "$" + nextCost + ", " + this.getAdjustedMoolahPerAmountPerSec() + " M/s, " + this.getAdjustedFlopsPerAmountPerSec() + " F/s";
+		document.getElementById(this.getName() + "Info").innerHTML = "$" + this.getNextCost() + ", " + this.getAdjustedMoolahPerAmountPerSec() + " M/s, " + this.getAdjustedFlopsPerAmountPerSec() + " F/s";
 	}
 }

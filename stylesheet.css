@@ -29,7 +29,7 @@ hr {
 /* Thanks to Frank Lantz for the console and pulsate code, check out his game Universal Paperclips */
 #console {
   float: left;
-  width: 100%;
+  width: 98%;
   margin-top: 10px;
   margin-left: 10px;
   background: black;
@@ -91,6 +91,9 @@ p.consoleOld {
   margin: 0;
 }
 
+#projects {
+  float: left;
+}
 #projects div {
   height: 150px;
   width: 300px;
@@ -110,11 +113,49 @@ p.consoleOld {
   display: none;
   margin: 0;
 }
+#stockbotDiv {
+  display: none;
+  margin: 0;
+}
+#crackerDiv {
+  display: none;
+  margin: 0;
+}
+#algorithmDiv {
+  display: none;
+  margin: 0;
+}
+
 #graduateDiv {
   display: none;
   margin: 0;
 }
-#appleIIDiv {
+#postdocDiv {
+  display: none;
+  margin: 0;
+}
+#profDiv {
+  display: none;
+  margin: 0;
+}
+#nobelDiv {
+  display: none;
+  margin: 0;
+}
+
+#appleDiv {
+  display: none;
+  margin: 0;
+}
+#tsdeltaDiv {
+  display: none;
+  margin: 0;
+}
+#tianheDiv {
+  display: none;
+  margin: 0;
+}
+#dwaveDiv {
   display: none;
   margin: 0;
 }
