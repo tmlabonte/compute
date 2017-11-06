@@ -26,7 +26,7 @@ class Commodity {
 			"undergrad": "",
 			"graduate": "Graduate school: Less cute girls, more old men.",
 			"postdoc": "",
-			"prof": "I hope he's tenured.",
+			"prof": "I still don't understand tenure.",
 			"nobel": "",
 			"eniac": "Old school, huh? Figures.",
 			"apple": "Color by Technicolor.",
@@ -142,7 +142,7 @@ class Business extends Commodity {
 	//Sets HTML for business information
 	setInnerHtmlForInfo() {
 		this.setNextCost(Math.floor(this.getInitialCost() * Math.pow(1.1, this.getAmount())));
-		if (this.getNextCost() > 1000000) {
+		if (this.getNextCost() >= 1000000) {
 			this.setNextCost(this.getNextCost().toExponential(2));
 		}
 		else {
@@ -185,7 +185,7 @@ class Research extends Commodity {
 	//Sets HTML for research information
 	setInnerHtmlForInfo() {
 		this.setNextCost(Math.floor(this.getInitialCost() * Math.pow(1.1, this.getAmount())));
-		if (this.getNextCost() > 1000000) {
+		if (this.getNextCost() >= 1000000) {
 			this.setNextCost(this.getNextCost().toExponential(2));
 		}
 		else {
@@ -250,7 +250,7 @@ class Computing extends Commodity{
 	//Sets HTML for computing information
 	setInnerHtmlForInfo() {
 		this.setNextCost(Math.floor(this.getInitialCost() * Math.pow(1.1, this.getAmount())));
-		if (this.getNextCost() > 1000000) {
+		if (this.getNextCost() >= 1000000) {
 			this.setNextCost(this.getNextCost().toExponential(2));
 		}
 		else {
