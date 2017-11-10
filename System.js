@@ -219,8 +219,8 @@ class System {
 		if (player.getFlops() >= 2e8 && document.getElementById("crackerDiv").style.display === "") {
 			document.getElementById("crackerDiv").style.display = "block";
 		}
-		//Display algorithm when player reaches 1,500,000,000 flops
-		if (player.getFlops() >= 1.5e9 && document.getElementById("algorithmDiv").style.display === "") {
+		//Display algorithm when player reaches 1,000,000,000 flops
+		if (player.getFlops() >= 1e9 && document.getElementById("algorithmDiv").style.display === "") {
 			document.getElementById("algorithmDiv").style.display = "block";
 		}
 
@@ -236,8 +236,8 @@ class System {
 		if (player.getFlops() >= 2.5e8 && document.getElementById("profDiv").style.display === "") {
 			document.getElementById("profDiv").style.display = "block";
 		}
-		//Display nobel when player reaches 2,500,000,000 flops
-		if (player.getFlops() >= 2.5e9 && document.getElementById("nobelDiv").style.display === "") {
+		//Display nobel when player reaches 2,000,000,000 flops
+		if (player.getFlops() >= 2e9 && document.getElementById("nobelDiv").style.display === "") {
 			document.getElementById("nobelDiv").style.display = "block";
 		}
 
@@ -253,29 +253,29 @@ class System {
 		if (player.getFlops() >= 3.5e8 && document.getElementById("tianheDiv").style.display === "") {
 			document.getElementById("tianheDiv").style.display = "block";
 		}
-		//Display dwave when player reaches 5,000,000,000 flops
-		if (player.getFlops() >= 5e9 && document.getElementById("dwaveDiv").style.display === "") {
+		//Display dwave when player reaches 3,000,000,000 flops
+		if (player.getFlops() >= 3e9 && document.getElementById("dwaveDiv").style.display === "") {
 			document.getElementById("dwaveDiv").style.display = "block";
 		}
 
 		//Displays next projects, if they exist
-		if (nextInvestmentIndex === investments.length) {
+		if (Project.nextInvestmentIndex === investments.length) {
 			document.getElementById("nextInvestment").innerHTML = "";
 		}
 		else {
-			document.getElementById("nextInvestment").innerHTML = investments[nextInvestmentIndex].getEffect();
+			document.getElementById("nextInvestment").innerHTML = investments[Project.nextInvestmentIndex].getEffect();
 		}
-		if (nextPersonIndex === people.length) {
+		if (Project.nextPersonIndex === people.length) {
 			document.getElementById("nextPerson").innerHTML = "";
 		}
 		else {
-			document.getElementById("nextPerson").innerHTML = people[nextPersonIndex].getEffect();
+			document.getElementById("nextPerson").innerHTML = people[Project.nextPersonIndex].getEffect();
 		}
-		if (nextTheoryIndex === theories.length) {
+		if (Project.nextTheoryIndex === theories.length) {
 			document.getElementById("nextTheory").innerHTML = "";
 		}
 		else {
-			document.getElementById("nextTheory").innerHTML = theories[nextTheoryIndex].getEffect();
+			document.getElementById("nextTheory").innerHTML = theories[Project.nextTheoryIndex].getEffect();
 		}
 
 		//Update cost and perSec display values of all commodities
@@ -298,9 +298,88 @@ class System {
 		dwave.setInnerHtmlForInfo();
 	}
 
-	/*static save() {
-		var savedata = {
+	static save() {
+		var saveData = {
+			moolah: player.getMoolah(),
+			knowledge: player.getKnowledge(),
+			flops: player.getFlops(),
+			hertzIncrease: player.getHertz() - 1,
 
+			adbotCurrentCost: adbot.getCurrentCost(),
+			adbotAmount: adbot.getAmount(),
+			adbotEfficiency: adbot.getEfficiency(),
+
+			routerCurrentCost: router.getCurrentCost(),
+			routerAmount: router.getAmount(),
+			routerEfficiency: router.getEfficiency(),
+
+			stockbotCurrentCost: stockbot.getCurrentCost(),
+			stockbotAmount: stockbot.getAmount(),
+			stockbotEfficiency: stockbot.getEfficiency(),
+
+			crackerCurrentCost: cracker.getCurrentCost(),
+			crackerAmount: cracker.getAmount(),
+			crackerEfficiency: cracker.getEfficiency(),
+
+			algorithmCurrentCost: algorithm.getCurrentCost(),
+			algorithmAmount: algorithm.getAmount(),
+			algorithmEfficiency: algorithm.getEfficiency(),
+
+			nextInvestmentIndex: Project.nextInvestmentIndex,
+			nextPersonIndex: Project.nextPersonIndex,
+			nextTheoryIndex: Project.nextTheoryIndex,
+		};
+		localStorage.setItem("saveData", JSON.stringify(saveData));
+	}
+	static deleteSave() {
+		localStorage.removeItem("saveData");
+		location.reload();
+	}
+	static load() {
+		var savegame = JSON.parse(localStorage.getItem("saveData"));
+
+		if (typeof savegame.moolah !== "undefined") player.raiseMoolah(savegame.moolah);
+		if (typeof savegame.knowledge !== "undefined") player.raiseKnowledge(savegame.knowledge);
+		if (typeof savegame.flops !== "undefined") player.raiseFlops(savegame.flops);
+		if (typeof savegame.hertzIncrease !== "undefined") player.raiseHertz(savegame.hertzIncrease);
+
+		if (typeof savegame.adbotCurrentCost !== "undefined") adbot.setCurrentCost(savegame.adbotCurrentCost);
+		if (typeof savegame.adbotAmount !== "undefined") {
+			adbot.raiseAmount(savegame.adbotAmount);
+			document.getElementById("adbot").innerHTML = adbot.getAmount();
 		}
-	}*/
+		if (typeof savegame.adbotEfficiency !== "undefined") adbot.raiseEfficiency(savegame.adbotEfficiency);
+
+		if (typeof savegame.routerCurrentCost !== "undefined") router.setCurrentCost(savegame.routerCurrentCost);
+		if (typeof savegame.routerAmount !== "undefined") {
+			router.raiseAmount(savegame.routerAmount);
+			document.getElementById("router").innerHTML = router.getAmount();
+		}
+		if (typeof savegame.routerEfficiency !== "undefined") router.raiseEfficiency(savegame.routerEfficiency);
+
+		if (typeof savegame.stockbotCurrentCost !== "undefined") stockbot.setCurrentCost(savegame.stockbotCurrentCost);
+		if (typeof savegame.stockbotAmount !== "undefined") {
+			stockbot.raiseAmount(savegame.stockbotAmount);
+			document.getElementById("stockbot").innerHTML = stockbot.getAmount();
+		}
+		if (typeof savegame.stockbotEfficiency !== "undefined") stockbot.raiseEfficiency(savegame.stockbotEfficiency);
+
+		if (typeof savegame.crackerCurrentCost !== "undefined") cracker.setCurrentCost(savegame.crackerCurrentCost);
+		if (typeof savegame.crackerAmount !== "undefined") {
+			cracker.raiseAmount(savegame.crackerAmount);
+			document.getElementById("cracker").innerHTML = cracker.getAmount();
+		}
+		if (typeof savegame.crackerEfficiency !== "undefined") cracker.raiseEfficiency(savegame.crackerEfficiency);
+
+		if (typeof savegame.algorithmCurrentCost !== "undefined") algorithm.setCurrentCost(savegame.algorithmCurrentCost);
+		if (typeof savegame.algorithmAmount !== "undefined") {
+			algorithm.raiseAmount(savegame.algorithmAmount);
+			document.getElementById("algorithm").innerHTML = algorithm.getAmount();
+		}
+		if (typeof savegame.algorithmEfficiency !== "undefined") algorithm.raiseEfficiency(savegame.algorithmEfficiency);
+
+		if (typeof savegame.nextInvestmentIndex !== "undefined") Project.nextInvestmentIndex = savegame.nextInvestmentIndex;
+		if (typeof savegame.nextPersonIndex !== "undefined") Project.nextProjectIndex = savegame.nextProjectIndex;
+		if (typeof savegame.nextTheoryIndex !== "undefined") Project.nextTheoryIndex = savegame.nextTheoryIndex;
+	}
 }

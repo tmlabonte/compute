@@ -1,7 +1,3 @@
-var nextInvestmentIndex = 0;
-var nextPersonIndex = 0;
-var nextTheoryIndex = 0;
-
 //Class to represent projects (i.e., upgrades)
 //Parent class of Investment, Person, and Theory
 class Project {
@@ -29,6 +25,9 @@ class Project {
 		return this._efficiencyFactor;
 	}
 }
+Project.nextInvestmentIndex = 0;
+Project.nextPersonIndex = 0;
+Project.nextTheoryIndex = 0;
 
 //Class to represent investment projects
 //Child class of Project
@@ -39,30 +38,30 @@ class Investment extends Project{
 		//Checks if the player has enough knowledge
 		if (player.getKnowledge() >= this.getCost()) {
 			//Raises efficiency of an object based on investment index, displays message if appropriate
-			if (nextInvestmentIndex === 0) {
+			if (Project.nextInvestmentIndex === 0) {
 				System.displayMessage("Let's not go near that whole Russia thing.");
 				adbot.raiseEfficiency(this.getEfficiencyFactor());
 			}
-			if (nextInvestmentIndex === 1) {
+			if (Project.nextInvestmentIndex === 1) {
 				System.displayMessage("Feels good to be back online.");
 				router.raiseEfficiency(this.getEfficiencyFactor());
 			}
-			if (nextInvestmentIndex === 2) {
+			if (Project.nextInvestmentIndex === 2) {
 				System.displayMessage("Crime? What crime?");
 				stockbot.raiseEfficiency(this.getEfficiencyFactor());
 			}
-			if (nextInvestmentIndex === 3) cracker.raiseEfficiency(this.getEfficiencyFactor());
-			if (nextInvestmentIndex === 4) algorithm.raiseEfficiency(this.getEfficiencyFactor());
+			if (Project.nextInvestmentIndex === 3) cracker.raiseEfficiency(this.getEfficiencyFactor());
+			if (Project.nextInvestmentIndex === 4) algorithm.raiseEfficiency(this.getEfficiencyFactor());
 
 			//Decreases knowledge, displays new knowledge, increments investment index
 			player.raiseKnowledge(-this.getCost());
 			System.displayKnowledge();
-			nextInvestmentIndex++;
+			Project.nextInvestmentIndex++;
 		}
 	}
 	//Attempts to buy next investment, if one exists
 	static buyNext() {
-		if (nextInvestmentIndex < investments.length) investments[nextInvestmentIndex]._buy();
+		if (Project.nextInvestmentIndex < investments.length) investments[Project.nextInvestmentIndex]._buy();
 	}
 }
 
@@ -75,30 +74,30 @@ class Person extends Project{
 		//Checks if the player has enough knowledge
 		if (player.getKnowledge() >= this.getCost()) {
 			//Raises efficiency of an object based on person index, displays message if appropriate
-			if (nextPersonIndex === 0) {
+			if (Project.nextPersonIndex === 0) {
 				System.displayMessage("I used to know Larry. Good guy. Could use a haircut, though.");
 				undergrad.raiseEfficiency(this.getEfficiencyFactor());
 			}
-			if (nextPersonIndex === 1) graduate.raiseEfficiency(this.getEfficiencyFactor());
-			if (nextPersonIndex === 2) {
-				System.displayMessage("The solution is 95% caffeine, 5% LSD. Why? Because I thought it would be funny.");
+			if (Project.nextPersonIndex === 1) graduate.raiseEfficiency(this.getEfficiencyFactor());
+			if (Project.nextPersonIndex === 2) {
+				System.displayMessage("The IV drip is 80% caffeine, 20% LSD. Why? Because I thought it would be funny.");
 				postdoc.raiseEfficiency(this.getEfficiencyFactor());
 			}
-			if (nextPersonIndex === 3) {
-				System.displayMessage("Breaking news: world of academia rejoices.");
+			if (Project.nextPersonIndex === 3) {
+				System.displayMessage("Breaking news: the world of academia rejoices.");
 				prof.raiseEfficiency(this.getEfficiencyFactor());
 			}
-			if (nextPersonIndex === 4) nobel.raiseEfficiency(this.getEfficiencyFactor());
+			if (Project.nextPersonIndex === 4) nobel.raiseEfficiency(this.getEfficiencyFactor());
 
 			//Decreases knowledge, displays new knowledge, increments person index
 			player.raiseKnowledge(-this.getCost());
 			System.displayKnowledge();
-			nextPersonIndex++;
+			Project.nextPersonIndex++;
 		}
 	}
 	//Attempts to buy next person, if one exists
 	static buyNext() {
-		if (nextPersonIndex < people.length) people[nextPersonIndex]._buy();
+		if (Project.nextPersonIndex < people.length) people[Project.nextPersonIndex]._buy();
 	}
 }
 
@@ -111,21 +110,21 @@ class Theory extends Project{
 		//Checks if the player has enough knowledge
 		if (player.getKnowledge() >= this.getCost()) {
 			//Raises efficiency of an object based on theory index, displays message if appropriate
-			if (nextTheoryIndex === 0) eniac.raiseEfficiency(this.getEfficiencyFactor());
-			if (nextTheoryIndex === 1) {
+			if (Project.nextTheoryIndex === 0) eniac.raiseEfficiency(this.getEfficiencyFactor());
+			if (Project.nextTheoryIndex === 1) {
 				System.displayMessage("It's not hacking, it's...innovation.");
 				apple.raiseEfficiency(this.getEfficiencyFactor());
 			}
-			if (nextTheoryIndex === 2) tsdelta.raiseEfficiency(this.getEfficiencyFactor());
-			if (nextTheoryIndex === 3) {
+			if (Project.nextTheoryIndex === 2) tsdelta.raiseEfficiency(this.getEfficiencyFactor());
+			if (Project.nextTheoryIndex === 3) {
 				System.displayMessage("This tech is commonly known as 'Tofu'. I swear I'm not making this up.");
 				tianhe.raiseEfficiency(this.getEfficiencyFactor());
 			}
-			if (nextTheoryIndex === 4) {
+			if (Project.nextTheoryIndex === 4) {
 				System.displayMessage("Had to change the name because we got sued for calling it 'Absolut Zero'.");
 				dwave.raiseEfficiency(this.getEfficiencyFactor());
 			}
-			if (nextTheoryIndex === 5) {
+			if (Project.nextTheoryIndex === 5) {
 				System.displayMessage("Clock is set for October 21, 3015. Here we go!");
 				dwave.raiseEfficiency(this.getEfficiencyFactor());
 			}
@@ -133,11 +132,11 @@ class Theory extends Project{
 			//Decreases knowledge, displays new knowledge, increments theory index
 			player.raiseKnowledge(-this.getCost());
 			System.displayKnowledge();
-			nextTheoryIndex++;
+			Project.nextTheoryIndex++;
 		}
 	}
 	//Attempts to buy next theory, if one exists
 	static buyNext() {
-		if (nextTheoryIndex < theories.length) theories[nextTheoryIndex]._buy();
+		if (Project.nextTheoryIndex < theories.length) theories[Project.nextTheoryIndex]._buy();
 	}
 }

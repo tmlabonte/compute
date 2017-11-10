@@ -25,7 +25,7 @@
 		<!-- Link to main stylesheet -->
 		<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	</head> 
-	<body>
+	<body onload="System.load()">
 		<!-- Top console displaying messages -->
 		<!-- Thanks to Frank Lantz for the code, check out his game Universal Paperclips -->
 		<div id="console">
@@ -109,10 +109,10 @@
 					<p><span id="nobelInfo">$3e+8, 10,000 K/s</span></p>
 				</div>
 			</div>
-			<!-- Computing commodities, mid-right column -->
+			<!-- Computing commodities, mid-right column with button to delete save-->
 			<div id="computing">
 				<!-- Title -->
-				<h3 style="display: inline-block;">Computing</h3>
+				<h3 style="display: inline-block;">Computing</h3>&nbsp;&nbsp;&nbsp;</h3><button onclick="System.deleteSave()">Restart game</button>
 				<hr>
 				<!-- Total flops and flops per second -->
 				<h4>FLOPs: <span id="flops">0</span></h4>
