@@ -5,20 +5,20 @@ var player = new Player();
 var adbot = new Business("adbot", 10, 1);
 var router = new Business("router", 500, 10);
 var stockbot = new Business("stockbot", 25000, 100);
-var cracker = new Business("cracker", 250000, 1000);
-var algorithm = new Business("algorithm", 1.5e6, 10000);
+var cracker = new Business("cracker", 300000, 1000);
+var algorithm = new Business("algorithm", 3e6, 10000);
 
 var undergrad = new Research("undergrad", 50, 1);
 var graduate = new Research("graduate", 2500, 10);
 var postdoc = new Research("postdoc", 75000, 100);
-var prof = new Research("prof", 400000, 1000);
-var nobel = new Research("nobel", 2e6, 10000);
+var prof = new Research("prof", 500000, 1000);
+var nobel = new Research("nobel", 5e6, 10000);
 
 var eniac = new Computing("eniac", 200, 5, 500);
 var apple = new Computing("apple", 10000, 50, 5000);
 var tsdelta = new Computing("tsdelta", 150000, 500, 50000);
-var tianhe = new Computing("tianhe", 750000, 5000, 500000);
-var dwave = new Computing("dwave", 3e6, 50000, 5e6);
+var tianhe = new Computing("tianhe", 1e6, 5000, 500000);
+var dwave = new Computing("dwave", 1e7, 50000, 5e6);
 
 //Project instantiation	
 //Projects are added to an array as they are created

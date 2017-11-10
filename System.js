@@ -215,8 +215,8 @@ class System {
 		if (player.getFlops() >= 5e6 && document.getElementById("stockbotDiv").style.display === "") {
 			document.getElementById("stockbotDiv").style.display = "block";
 		}
-		//Display cracker when player reaches 200,000,000 flops
-		if (player.getFlops() >= 2e8 && document.getElementById("crackerDiv").style.display === "") {
+		//Display cracker when player reaches 175,000,000 flops
+		if (player.getFlops() >= 1.75e8 && document.getElementById("crackerDiv").style.display === "") {
 			document.getElementById("crackerDiv").style.display = "block";
 		}
 		//Display algorithm when player reaches 1,000,000,000 flops
