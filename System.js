@@ -1,5 +1,3 @@
-var currentColumn = 1;
-
 //Static class to represent the game system
 //Contains display and update functions
 //Intermediary between "frontend" and "backend"
@@ -84,89 +82,89 @@ class System {
 	//Populates a column of data for every 0.1 seconds
 	static updateData() {
 		var nameRowObj = player.getDataRow(0);
-		nameRowObj[currentColumn] = currentColumn;
+		nameRowObj[System.currentColumn] = System.currentColumn;
 
 		var adbotRowObj = player.getDataRow(1);
 		if (adbot.getAmount() !== 0) {
-			adbotRowObj[currentColumn] = (adbot.getAdjustedMoolahPerDeciSec() / (adbot.getCurrentCost() * adbot.getAmount()));
+			adbotRowObj[System.currentColumn] = (adbot.getAdjustedMoolahPerDeciSec() / (adbot.getCurrentCost() * adbot.getAmount()));
 		}
 		else {
-			adbotRowObj[currentColumn] = (0.1 * adbot.getInitialMoolahPerSec() * player.getHertz()) / adbot.getCurrentCost();
+			adbotRowObj[System.currentColumn] = (0.1 * adbot.getInitialMoolahPerSec() * player.getHertz()) / adbot.getCurrentCost();
 		}
 
 		var routerRowObj = player.getDataRow(2);
 		if (router.getAmount() !== 0) {
-			routerRowObj[currentColumn] = (router.getAdjustedMoolahPerDeciSec() / (router.getCurrentCost() * router.getAmount()));
+			routerRowObj[System.currentColumn] = (router.getAdjustedMoolahPerDeciSec() / (router.getCurrentCost() * router.getAmount()));
 		}
 		else {
-			routerRowObj[currentColumn] = (0.1 * router.getInitialMoolahPerSec() * player.getHertz()) / router.getCurrentCost();
+			routerRowObj[System.currentColumn] = (0.1 * router.getInitialMoolahPerSec() * player.getHertz()) / router.getCurrentCost();
 		}
 
 		var stockbotRowObj = player.getDataRow(3);
 		if (stockbot.getAmount() !== 0) {
-			stockbotRowObj[currentColumn] = (stockbot.getAdjustedMoolahPerDeciSec() / (stockbot.getCurrentCost() * stockbot.getAmount()));
+			stockbotRowObj[System.currentColumn] = (stockbot.getAdjustedMoolahPerDeciSec() / (stockbot.getCurrentCost() * stockbot.getAmount()));
 		}
 		else {
-			stockbotRowObj[currentColumn] = (0.1 * stockbot.getInitialMoolahPerSec() * player.getHertz()) / stockbot.getCurrentCost();
+			stockbotRowObj[System.currentColumn] = (0.1 * stockbot.getInitialMoolahPerSec() * player.getHertz()) / stockbot.getCurrentCost();
 		}
 
 		var crackerRowObj = player.getDataRow(4);
 		if (cracker.getAmount() !== 0) {
-			crackerRowObj[currentColumn] = (cracker.getAdjustedMoolahPerDeciSec() / (cracker.getCurrentCost() * cracker.getAmount()));
+			crackerRowObj[System.currentColumn] = (cracker.getAdjustedMoolahPerDeciSec() / (cracker.getCurrentCost() * cracker.getAmount()));
 		}
 		else {
-			crackerRowObj[currentColumn] = (0.1 * cracker.getInitialMoolahPerSec() * player.getHertz()) / cracker.getCurrentCost();
+			crackerRowObj[System.currentColumn] = (0.1 * cracker.getInitialMoolahPerSec() * player.getHertz()) / cracker.getCurrentCost();
 		}
 
 		var algorithmRowObj = player.getDataRow(5);
 		if (algorithm.getAmount() !== 0) {
-			algorithmRowObj[currentColumn] = (algorithm.getAdjustedMoolahPerDeciSec() / (algorithm.getCurrentCost() * algorithm.getAmount()));
+			algorithmRowObj[System.currentColumn] = (algorithm.getAdjustedMoolahPerDeciSec() / (algorithm.getCurrentCost() * algorithm.getAmount()));
 		}
 		else {
-			algorithmRowObj[currentColumn] = (0.1 * algorithm.getInitialMoolahPerSec() * player.getHertz()) / algorithm.getCurrentCost();
+			algorithmRowObj[System.currentColumn] = (0.1 * algorithm.getInitialMoolahPerSec() * player.getHertz()) / algorithm.getCurrentCost();
 		}
 
 		var eniacRowObj = player.getDataRow(6);
 		if (eniac.getAmount() !== 0) {
-			eniacRowObj[currentColumn] = (eniac.getAdjustedMoolahPerDeciSec() / (eniac.getCurrentCost() * eniac.getAmount()));
+			eniacRowObj[System.currentColumn] = (eniac.getAdjustedMoolahPerDeciSec() / (eniac.getCurrentCost() * eniac.getAmount()));
 		}
 		else {
-			eniacRowObj[currentColumn] = (0.1 * eniac.getInitialMoolahPerSec() * player.getHertz()) / eniac.getCurrentCost();
+			eniacRowObj[System.currentColumn] = (0.1 * eniac.getInitialMoolahPerSec() * player.getHertz()) / eniac.getCurrentCost();
 		}
 
 		var appleRowObj = player.getDataRow(7);
 		if (apple.getAmount() !== 0) {
-			appleRowObj[currentColumn] = (apple.getAdjustedMoolahPerDeciSec() / (apple.getCurrentCost() * apple.getAmount()));
+			appleRowObj[System.currentColumn] = (apple.getAdjustedMoolahPerDeciSec() / (apple.getCurrentCost() * apple.getAmount()));
 		}
 		else {
-			appleRowObj[currentColumn] = (0.1 * apple.getInitialMoolahPerSec() * player.getHertz()) / apple.getCurrentCost();
+			appleRowObj[System.currentColumn] = (0.1 * apple.getInitialMoolahPerSec() * player.getHertz()) / apple.getCurrentCost();
 		}
 
 		var tsdeltaRowObj = player.getDataRow(8);
 		if (tsdelta.getAmount() !== 0) {
-			tsdeltaRowObj[currentColumn] = (tsdelta.getAdjustedMoolahPerDeciSec() / (tsdelta.getCurrentCost() * tsdelta.getAmount()));
+			tsdeltaRowObj[System.currentColumn] = (tsdelta.getAdjustedMoolahPerDeciSec() / (tsdelta.getCurrentCost() * tsdelta.getAmount()));
 		}
 		else {
-			tsdeltaRowObj[currentColumn] = (0.1 * tsdelta.getInitialMoolahPerSec() * player.getHertz()) / tsdelta.getCurrentCost();
+			tsdeltaRowObj[System.currentColumn] = (0.1 * tsdelta.getInitialMoolahPerSec() * player.getHertz()) / tsdelta.getCurrentCost();
 		}
 
 		var tianheRowObj = player.getDataRow(9);
 		if (tianhe.getAmount() !== 0) {
-			tianheRowObj[currentColumn] = (tianhe.getAdjustedMoolahPerDeciSec() / (tianhe.getCurrentCost() * tianhe.getAmount()));
+			tianheRowObj[System.currentColumn] = (tianhe.getAdjustedMoolahPerDeciSec() / (tianhe.getCurrentCost() * tianhe.getAmount()));
 		}
 		else {
-			tianheRowObj[currentColumn] = (0.1 * tianhe.getInitialMoolahPerSec() * player.getHertz()) / tianhe.getCurrentCost();
+			tianheRowObj[System.currentColumn] = (0.1 * tianhe.getInitialMoolahPerSec() * player.getHertz()) / tianhe.getCurrentCost();
 		}
 
 		var dwaveRowObj = player.getDataRow(10);
 		if (dwave.getAmount() !== 0) {
-			dwaveRowObj[currentColumn] = (dwave.getAdjustedMoolahPerDeciSec() / (dwave.getCurrentCost() * dwave.getAmount()));
+			dwaveRowObj[System.currentColumn] = (dwave.getAdjustedMoolahPerDeciSec() / (dwave.getCurrentCost() * dwave.getAmount()));
 		}
 		else {
-			dwaveRowObj[currentColumn] = (0.1 * dwave.getInitialMoolahPerSec() * player.getHertz()) / dwave.getCurrentCost();
+			dwaveRowObj[System.currentColumn] = (0.1 * dwave.getInitialMoolahPerSec() * player.getHertz()) / dwave.getCurrentCost();
 		}
 
-		currentColumn++;
+		System.currentColumn++;
 	}
 
 	//Consolidates update functions
@@ -259,19 +257,19 @@ class System {
 		}
 
 		//Displays next projects, if they exist
-		if (Project.nextInvestmentIndex === investments.length) {
+		if (Project.nextInvestmentIndex >= investments.length) {
 			document.getElementById("nextInvestment").innerHTML = "";
 		}
 		else {
 			document.getElementById("nextInvestment").innerHTML = investments[Project.nextInvestmentIndex].getEffect();
 		}
-		if (Project.nextPersonIndex === people.length) {
+		if (Project.nextPersonIndex >= people.length) {
 			document.getElementById("nextPerson").innerHTML = "";
 		}
 		else {
 			document.getElementById("nextPerson").innerHTML = people[Project.nextPersonIndex].getEffect();
 		}
-		if (Project.nextTheoryIndex === theories.length) {
+		if (Project.nextTheoryIndex >= theories.length) {
 			document.getElementById("nextTheory").innerHTML = "";
 		}
 		else {
@@ -279,23 +277,9 @@ class System {
 		}
 
 		//Update cost and perSec display values of all commodities
-		adbot.setInnerHtmlForInfo();
-		router.setInnerHtmlForInfo();
-		stockbot.setInnerHtmlForInfo();
-		cracker.setInnerHtmlForInfo();
-		algorithm.setInnerHtmlForInfo();
-
-		undergrad.setInnerHtmlForInfo();
-		graduate.setInnerHtmlForInfo();
-		postdoc.setInnerHtmlForInfo();
-		prof.setInnerHtmlForInfo();
-		nobel.setInnerHtmlForInfo();
-
-		eniac.setInnerHtmlForInfo();
-		apple.setInnerHtmlForInfo();
-		tsdelta.setInnerHtmlForInfo();
-		tianhe.setInnerHtmlForInfo();
-		dwave.setInnerHtmlForInfo();
+		for (var i=0; i<15; i++) {
+			commodities[i].setInnerHtmlForInfo();
+		}
 	}
 
 	static save() {
@@ -303,7 +287,6 @@ class System {
 			moolah: player.getMoolah(),
 			knowledge: player.getKnowledge(),
 			flops: player.getFlops(),
-			hertzIncrease: player.getHertz() - 1,
 
 			adbotCurrentCost: adbot.getCurrentCost(),
 			adbotAmount: adbot.getAmount(),
@@ -328,6 +311,8 @@ class System {
 			nextInvestmentIndex: Project.nextInvestmentIndex,
 			nextPersonIndex: Project.nextPersonIndex,
 			nextTheoryIndex: Project.nextTheoryIndex,
+
+			future: System.future
 		};
 		localStorage.setItem("saveData", JSON.stringify(saveData));
 	}
@@ -341,7 +326,6 @@ class System {
 		if (typeof savegame.moolah !== "undefined") player.raiseMoolah(savegame.moolah);
 		if (typeof savegame.knowledge !== "undefined") player.raiseKnowledge(savegame.knowledge);
 		if (typeof savegame.flops !== "undefined") player.raiseFlops(savegame.flops);
-		if (typeof savegame.hertzIncrease !== "undefined") player.raiseHertz(savegame.hertzIncrease);
 
 		if (typeof savegame.adbotCurrentCost !== "undefined") adbot.setCurrentCost(savegame.adbotCurrentCost);
 		if (typeof savegame.adbotAmount !== "undefined") {
@@ -379,7 +363,54 @@ class System {
 		if (typeof savegame.algorithmEfficiency !== "undefined") algorithm.raiseEfficiency(savegame.algorithmEfficiency);
 
 		if (typeof savegame.nextInvestmentIndex !== "undefined") Project.nextInvestmentIndex = savegame.nextInvestmentIndex;
-		if (typeof savegame.nextPersonIndex !== "undefined") Project.nextProjectIndex = savegame.nextProjectIndex;
+		if (typeof savegame.nextPersonIndex !== "undefined") Project.nextPersonIndex = savegame.nextPersonIndex;
 		if (typeof savegame.nextTheoryIndex !== "undefined") Project.nextTheoryIndex = savegame.nextTheoryIndex;
+
+		if (typeof savegame.future !== "undefined") System.future = savegame.future;
+	}
+
+	static transitionToFuture() {
+		System.displayMessage("Clock is set for October 21, 3015. Here we go!");
+		System.amountAtTransition = {
+			"adbot": adbot.getAmount(),
+			"router": router.getAmount(),
+			"stockbot": stockbot.getAmount(),
+			"cracker": cracker.getAmount(),
+			"algorithm": algorithm.getAmount(),
+
+			"undergrad": undergrad.getAmount(),
+			"graduate": graduate.getAmount(),
+			"postdoc": postdoc.getAmount(),
+			"prof": prof.getAmount(),
+			"nobel": nobel.getAmount(),
+
+			"eniac": eniac.getAmount(),
+			"apple": apple.getAmount(),
+			"tsdelta": tsdelta.getAmount(),
+			"tianhe": tianhe.getAmount(),
+			"dwave": dwave.getAmount(),
+
+			"moolah": player.getMoolah(),
+			"knowledge": player.getKnowledge(),
+			"flops": player.getFlops(),
+		};
+		System.transition = true;
+		document.getElementById("envelope").className += "shake-opacity";
+	}
+
+	static decreaseForFuture(index) {
+		var obj = commodities[index];
+		var amountToDecrease = Math.ceil(System.amountAtTransition[obj.getName()] / 50);
+		if (obj.getAmount() - amountToDecrease >= 0 && obj.getAmount() > 0) {
+			obj.raiseAmount(-amountToDecrease);
+		}
+		else {
+			obj.raiseAmount(0 - obj.getAmount());
+			document.getElementById(obj.getName() + "Div").style.display = "none";
+		}
+		document.getElementById(obj.getName()).innerHTML = obj.getAmount();
 	}
 }
+System.currentColumn = 1;
+System.transition = false;
+System.future = false;

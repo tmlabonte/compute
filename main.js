@@ -20,6 +20,8 @@ var tsdelta = new Computing("tsdelta", 150000, 500, 50000);
 var tianhe = new Computing("tianhe", 1e6, 5000, 500000);
 var dwave = new Computing("dwave", 1e7, 50000, 5e6);
 
+var commodities = [adbot, router, stockbot, cracker, algorithm, undergrad, graduate, postdoc, prof, nobel, eniac, apple, tsdelta, tianhe, dwave];
+
 //Project instantiation	
 //Projects are added to an array as they are created
 var inv0 = new Investment(300, "Targeted Ads<br><br>AdBot efficiency x3<br><br>300 Knowledge", 3);
@@ -46,10 +48,48 @@ var theories = [the0, the1, the2, the3, the4, the5];
 
 //Window refreshes every 0.1 seconds with updated values and displays; also updates data and saves
 window.setInterval(function(){
-	System.updateValues();
-	System.updateScreen();
-	System.updateData();
-	System.save();
+	if (System.transition) {
+		for (var i=0; i<15; i++) {
+			System.decreaseForFuture(i);
+		}
+		
+		if (System.amountAtTransition.moolah - player.getMoolah() >= 0 && player.getMoolah() > 0) {
+			player.raiseMoolah(-Math.ceil(System.amountAtTransition.moolah / 50));
+		}
+		else {
+			player.raiseMoolah(0 - player.getMoolah());
+		}
+		if (System.amountAtTransition.knowledge - player.getKnowledge() >= 0 && player.getKnowledge() > 0) {
+			player.raiseKnowledge(-Math.ceil(System.amountAtTransition.knowledge / 50));
+		}
+		else {
+			player.raiseKnowledge(0 - player.getKnowledge());
+		}
+		if (System.amountAtTransition.flops - player.getFlops() >= 0 && player.getFlops() > 0) {
+			player.raiseFlops(-Math.ceil(System.amountAtTransition.flops / 50));
+		}
+		else {
+			player.raiseFlops(0 - player.getFlops());
+		}
+
+		if (player.getMoolah() == 0 && player.getKnowledge() == 0 && player.getFlops() == 0) {
+			System.transition = false;
+			System.future = true;
+			document.getElementById("envelope").className -= "shake-opacity";
+			setTimeout(function(){
+    			System.displayMessage("After landing in 3015, the time machine malfunctioned and transported us to the year 2975.");
+			}, 3000);
+			setTimeout(function(){
+    			System.displayMessage("Looks like we'll have to get...back to the future.");
+			}, 12000);
+		}
+	}
+	else {
+		System.updateValues();
+		System.updateScreen();
+		System.updateData();
+		System.save();
+	}
 }, 100);
 
 //Cheat function for testing

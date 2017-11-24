@@ -125,8 +125,9 @@ class Theory extends Project{
 				dwave.raiseEfficiency(this.getEfficiencyFactor());
 			}
 			if (Project.nextTheoryIndex === 5) {
-				System.displayMessage("Clock is set for October 21, 3015. Here we go!");
-				dwave.raiseEfficiency(this.getEfficiencyFactor());
+				Project.nextTheoryIndex++;
+				System.updateScreen();
+				System.transitionToFuture();
 			}
 
 			//Decreases knowledge, displays new knowledge, increments theory index

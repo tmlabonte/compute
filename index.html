@@ -23,143 +23,147 @@
 		<link href="https://fonts.googleapis.com/css?family=Lora|Lato" rel="stylesheet">
 
 		<!-- Link to main stylesheet -->
+		<link rel="stylesheet" type="text/css" href="http://csshake.surge.sh/csshake.min.css">
 		<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	</head> 
 	<body onload="System.load()">
-		<!-- Top console displaying messages -->
-		<!-- Thanks to Frank Lantz for the code, check out his game Universal Paperclips -->
-		<div id="console">
-			<p class = "consoleOld"> 
-                <span>&nbsp;.&nbsp;</span><span id="readout5"></span><br>
-                <span>&nbsp;.&nbsp;</span><span id="readout4"></span><br>
-                <span>&nbsp;.&nbsp;</span><span id="readout3"></span><br>
-                <span>&nbsp;.&nbsp;</span><span id="readout2"></span><br>
-            </p>
-            <p class = "console"> 
-                <span>&nbsp;>&nbsp;</span><span id="readout1">COMPUTE</span><span id="cursor" class ="pulsate">|</span>
-            </p>
-		</div>
-		<!-- Display that the player interacts with -->
-		<div id="display">
-			<!-- Business commodities, left column -->
-			<div id="business">
-				<!-- Title with button to raise $1-->
-				<h3 style="display: inline-block;">Business&nbsp;&nbsp;&nbsp;</h3><button type="button" class="button" onclick="player.raiseMoolah(1)">Raise Money</button>
-				<hr>
-				<!-- Total moolah and moolah per second -->
-				<h4>Moolah: <span id="moolah">$0</span></h4>
-				<p>M/s: <span id="moolahPerSec">$0</span></p>
-				<!-- AdBot div (inline margin style because adblockerplus thinks it is an ad and negates the CSS) -->
-				<div id="adbotDiv" style="margin: 0;">
-					<p><button type="button" class="button" onclick="adbot.buy(1)">AdBot</button>&nbsp;<span id="adbot">0</span></p>
-					<p><span id="adbotInfo">$10, 1 M/s</span></p>
-				</div>
-				<!-- Router div -->
-				<div id="routerDiv">
-					<p><button type="button" class="button" onclick="router.buy(1)">Router</button>&nbsp;<span id="router">0</span></p>
-					<p><span id="routerInfo">$500, 10 M/s</span></p>
-				</div>
-				<!-- StockBot div -->
-				<div id="stockbotDiv">
-					<p><button type="button" class="button" onclick="stockbot.buy(1)">StockBot</button>&nbsp;<span id="stockbot">0</span></p>
-					<p><span id="stockbotInfo">$25,000, 100 M/s</span></p>
-				</div>
-				<!-- CryptoCracker div -->
-				<div id="crackerDiv">
-					<p><button type="button" class="button" onclick="cracker.buy(1)">CryptoCracker</button>&nbsp;<span id="cracker">0</span></p>
-					<p><span id="crackerInfo">$1.25e+6, 1,000 M/s</span></p>
-				</div>
-				<!-- Predictive Algorithm div -->
-				<div id="algorithmDiv">
-					<p><button type="button" class="button" onclick="algorithm.buy(1)">Predictive Algorithm</button>&nbsp;<span id="algorithm">0</span></p>
-					<p><span id="algorithmInfo">$6.25e+7, 10,000 M/s</span></p>
-				</div>
+		<!-- Envelope div for shaking during time travel -->
+		<div id="envelope" style="display: block;">
+			<!-- Top console displaying messages -->
+			<!-- Thanks to Frank Lantz for the code, check out his game Universal Paperclips -->
+			<div id="console">
+				<p class = "consoleOld"> 
+	                <span>&nbsp;.&nbsp;</span><span id="readout5"></span><br>
+	                <span>&nbsp;.&nbsp;</span><span id="readout4"></span><br>
+	                <span>&nbsp;.&nbsp;</span><span id="readout3"></span><br>
+	                <span>&nbsp;.&nbsp;</span><span id="readout2"></span><br>
+	            </p>
+	            <p class = "console"> 
+	                <span>&nbsp;>&nbsp;</span><span id="readout1">COMPUTE</span><span id="cursor" class ="pulsate">|</span>
+	            </p>
 			</div>
-			<!-- Research commodities, mid-left column with button to download data -->
-			<div id="research">
-				<!-- Title -->
-				<h3 style="display: inline-block;">Research&nbsp;&nbsp;</h3><button onclick="player.downloadData()">Download XLSX file</button>
-				<hr>
-				<!-- Total knowledge and knowledge per second -->
-				<h4>Knowledge: <span id="knowledge">0</span></h4>
-				<p>K/s: <span id="knowledgePerSec">0</span></p>
-				<!-- Undergrad div -->
-				<div id="undergradDiv">
-					<p><button type="button" class="button" onclick="undergrad.buy(1)">Undergrad</button>&nbsp;<span id="undergrad">0</span></p>
-					<p><span id="undergradInfo">$50, 1 K/s</span></p>
+			<!-- Display that the player interacts with -->
+			<div id="display">
+				<!-- Business commodities, left column -->
+				<div id="business">
+					<!-- Title with button to raise $1-->
+					<h3 style="display: inline-block;">Business&nbsp;&nbsp;&nbsp;</h3><button type="button" class="button" onclick="player.raiseMoolah(1)">Raise Money</button>
+					<hr>
+					<!-- Total moolah and moolah per second -->
+					<h4>Moolah: <span id="moolah">$0</span></h4>
+					<p>M/s: <span id="moolahPerSec">$0</span></p>
+					<!-- AdBot div (inline margin style because adblockerplus thinks it is an ad and negates the CSS) -->
+					<div id="adbotDiv" style="margin: 0;">
+						<p><button type="button" class="button" onclick="adbot.buy(1)">AdBot</button>&nbsp;<span id="adbot">0</span></p>
+						<p><span id="adbotInfo">$10, 1 M/s</span></p>
+					</div>
+					<!-- Router div -->
+					<div id="routerDiv">
+						<p><button type="button" class="button" onclick="router.buy(1)">Router</button>&nbsp;<span id="router">0</span></p>
+						<p><span id="routerInfo">$500, 10 M/s</span></p>
+					</div>
+					<!-- StockBot div -->
+					<div id="stockbotDiv">
+						<p><button type="button" class="button" onclick="stockbot.buy(1)">StockBot</button>&nbsp;<span id="stockbot">0</span></p>
+						<p><span id="stockbotInfo">$25,000, 100 M/s</span></p>
+					</div>
+					<!-- CryptoCracker div -->
+					<div id="crackerDiv">
+						<p><button type="button" class="button" onclick="cracker.buy(1)">CryptoCracker</button>&nbsp;<span id="cracker">0</span></p>
+						<p><span id="crackerInfo">$1.25e+6, 1,000 M/s</span></p>
+					</div>
+					<!-- Predictive Algorithm div -->
+					<div id="algorithmDiv">
+						<p><button type="button" class="button" onclick="algorithm.buy(1)">Predictive Algorithm</button>&nbsp;<span id="algorithm">0</span></p>
+						<p><span id="algorithmInfo">$6.25e+7, 10,000 M/s</span></p>
+					</div>
 				</div>
-				<!-- Graduate div -->
-				<div id="graduateDiv">
-					<p><button type="button" class="button" onclick="graduate.buy(1)">Graduate</button>&nbsp;<span id="graduate">0</span></p>
-					<p><span id="graduateInfo">$1000, 10 K/s</span></p>
+				<!-- Research commodities, mid-left column with button to download data -->
+				<div id="research">
+					<!-- Title -->
+					<h3 style="display: inline-block;">Research&nbsp;&nbsp;</h3><button onclick="player.downloadData()">Download XLSX file</button>
+					<hr>
+					<!-- Total knowledge and knowledge per second -->
+					<h4>Knowledge: <span id="knowledge">0</span></h4>
+					<p>K/s: <span id="knowledgePerSec">0</span></p>
+					<!-- Undergrad div -->
+					<div id="undergradDiv">
+						<p><button type="button" class="button" onclick="undergrad.buy(1)">Undergrad</button>&nbsp;<span id="undergrad">0</span></p>
+						<p><span id="undergradInfo">$50, 1 K/s</span></p>
+					</div>
+					<!-- Graduate div -->
+					<div id="graduateDiv">
+						<p><button type="button" class="button" onclick="graduate.buy(1)">Graduate</button>&nbsp;<span id="graduate">0</span></p>
+						<p><span id="graduateInfo">$1000, 10 K/s</span></p>
+					</div>
+					<!-- Postdoc div -->
+					<div id="postdocDiv">
+						<p><button type="button" class="button" onclick="postdoc.buy(1)">Postdoc</button>&nbsp;<span id="postdoc">0</span></p>
+						<p><span id="postdocInfo">$125,000, 100 K/s</span></p>
+					</div>
+					<!-- Professor div -->
+					<div id="profDiv">
+						<p><button type="button" class="button" onclick="prof.buy(1)">Professor</button>&nbsp;<span id="prof">0</span></p>
+						<p><span id="profInfo">$6.25e+6, 1,000 K/s</span></p>
+					</div>
+					<!-- Nobel Laureate div -->
+					<div id="nobelDiv">
+						<p><button type="button" class="button" onclick="nobel.buy(1)">Nobel Laureate</button>&nbsp;<span id="nobel">0</span></p>
+						<p><span id="nobelInfo">$3e+8, 10,000 K/s</span></p>
+					</div>
 				</div>
-				<!-- Postdoc div -->
-				<div id="postdocDiv">
-					<p><button type="button" class="button" onclick="postdoc.buy(1)">Postdoc</button>&nbsp;<span id="postdoc">0</span></p>
-					<p><span id="postdocInfo">$125,000, 100 K/s</span></p>
+				<!-- Computing commodities, mid-right column with button to delete save-->
+				<div id="computing" style="width: 250px;">
+					<!-- Title -->
+					<h3 style="display: inline-block;">Computing</h3>&nbsp;&nbsp;&nbsp;</h3><button onclick="System.deleteSave()">Restart game</button>
+					<hr>
+					<!-- Total flops and flops per second -->
+					<h4>FLOPs: <span id="flops">0</span></h4>
+					<p>F/s: <span id="flopsPerSec">0</span></p>
+					<!-- Eniac div -->
+					<div id="eniacDiv">
+						<p><button type="button" class="button" onclick="eniac.buy(1)">ENIAC</button>&nbsp;<span id="eniac">0</span></p>
+						<p><span id="eniacInfo">$200, 5 M/s, 500 F/s</span></p>
+					</div>
+					<!-- AppleII div -->
+					<div id="appleDiv">
+						<p><button type="button" class="button" onclick="apple.buy(1)">Apple II</button>&nbsp;<span id="apple">0</span></p>
+						<p><span id="appleInfo">$5000, 50 M/s, 5,000 F/s</span></p>
+					</div>
+					<!-- TS Delta div -->
+					<div id="tsdeltaDiv">
+						<p><button type="button" class="button" onclick="tsdelta.buy(1)">TS Delta</button>&nbsp;<span id="tsdelta">0</span></p>
+						<p><span id="tsdeltaInfo">$500,000, 500 M/s, 50,000 F/s</span></p>
+					</div>
+					<!-- Tianhe 1A div -->
+					<div id="tianheDiv">
+						<p><button type="button" class="button" onclick="tianhe.buy(1)">Tianhe 1A</button>&nbsp;<span id="tianhe">0</span></p>
+						<p><span id="tianheInfo">$2.5e+7, 5,000 M/s, 500,000 F/s</span></p>
+					</div>
+					<!-- D-Wave 2000Q div -->
+					<div id="dwaveDiv">
+						<p><button type="button" class="button" onclick="dwave.buy(1)">D-Wave 2000Q</button>&nbsp;<span id="dwave">0</span></p>
+						<p><span id="dwaveInfo">$1.25e+9, 50,000 M/s, 5e+6 F/s</span></p>
+					</div>
 				</div>
-				<!-- Professor div -->
-				<div id="profDiv">
-					<p><button type="button" class="button" onclick="prof.buy(1)">Professor</button>&nbsp;<span id="prof">0</span></p>
-					<p><span id="profInfo">$6.25e+6, 1,000 K/s</span></p>
-				</div>
-				<!-- Nobel Laureate div -->
-				<div id="nobelDiv">
-					<p><button type="button" class="button" onclick="nobel.buy(1)">Nobel Laureate</button>&nbsp;<span id="nobel">0</span></p>
-					<p><span id="nobelInfo">$3e+8, 10,000 K/s</span></p>
-				</div>
-			</div>
-			<!-- Computing commodities, mid-right column with button to delete save-->
-			<div id="computing">
-				<!-- Title -->
-				<h3 style="display: inline-block;">Computing</h3>&nbsp;&nbsp;&nbsp;</h3><button onclick="System.deleteSave()">Restart game</button>
-				<hr>
-				<!-- Total flops and flops per second -->
-				<h4>FLOPs: <span id="flops">0</span></h4>
-				<p>F/s: <span id="flopsPerSec">0</span></p>
-				<!-- Eniac div -->
-				<div id="eniacDiv">
-					<p><button type="button" class="button" onclick="eniac.buy(1)">ENIAC</button>&nbsp;<span id="eniac">0</span></p>
-					<p><span id="eniacInfo">$200, 5 M/s, 500 F/s</span></p>
-				</div>
-				<!-- AppleII div -->
-				<div id="appleDiv">
-					<p><button type="button" class="button" onclick="apple.buy(1)">Apple II</button>&nbsp;<span id="apple">0</span></p>
-					<p><span id="appleInfo">$5000, 50 M/s, 5,000 F/s</span></p>
-				</div>
-				<!-- TS Delta div -->
-				<div id="tsdeltaDiv">
-					<p><button type="button" class="button" onclick="tsdelta.buy(1)">TS Delta</button>&nbsp;<span id="tsdelta">0</span></p>
-					<p><span id="tsdeltaInfo">$500,000, 500 M/s, 50,000 F/s</span></p>
-				</div>
-				<!-- Tianhe 1A div -->
-				<div id="tianheDiv">
-					<p><button type="button" class="button" onclick="tianhe.buy(1)">Tianhe 1A</button>&nbsp;<span id="tianhe">0</span></p>
-					<p><span id="tianheInfo">$2.5e+7, 5,000 M/s, 500,000 F/s</span></p>
-				</div>
-				<!-- D-Wave 2000Q div -->
-				<div id="dwaveDiv">
-					<p><button type="button" class="button" onclick="dwave.buy(1)">D-Wave 2000Q</button>&nbsp;<span id="dwave">0</span></p>
-					<p><span id="dwaveInfo">$1.25e+9, 50,000 M/s, 5e+6 F/s</span></p>
-				</div>
-			</div>
-			<!-- Projects, right column -->
-			<!-- Divided into 3 grey divs -->
-			<div id="projects">
-				<!-- Investments div -->
-				<div id="investments" onclick="Investment.buyNext()">
-					<h4>Next Investment:</h4>
-					<p><span id="nextInvestment"></span></p>
-				</div>
-				<!-- People div -->
-				<div id="people" onclick="Person.buyNext()">
-					<h4>Next Person:</h4>
-					<p><span id="nextPerson"></span></p>
-				</div>
-				<!-- Theories div -->
-				<div id="theories" onclick="Theory.buyNext()">
-					<h4>Next Theory:</h4>
-					<p><span id="nextTheory"></span></p>
+				<!-- Projects, right column -->
+				<!-- Divided into 3 grey divs -->
+				<div id="projects">
+					<!-- Investments div -->
+					<div id="investments" onclick="Investment.buyNext()">
+						<h4>Next Investment:</h4>
+						<p><span id="nextInvestment"></span></p>
+					</div>
+					<!-- People div -->
+					<div id="people" onclick="Person.buyNext()">
+						<h4>Next Person:</h4>
+						<p><span id="nextPerson"></span></p>
+					</div>
+					<!-- Theories div -->
+					<div id="theories" onclick="Theory.buyNext()">
+						<h4>Next Theory:</h4>
+						<p><span id="nextTheory"></span></p>
+					</div>
 				</div>
 			</div>
 		</div>

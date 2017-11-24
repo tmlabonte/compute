@@ -70,11 +70,13 @@ p.consoleOld {
   width: 100%;
 }
 #display div {
-  width: 225px;
   float: left;
   margin-left: 10px;
+  width: 225px;
 }
 
+#business {
+}
 #business div {
   margin: 0;
 }
@@ -89,6 +91,7 @@ p.consoleOld {
 }
 #computing div {
   margin: 0;
+  width: 250px;
 }
 
 #projects {
