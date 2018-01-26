@@ -77,6 +77,31 @@
 						<p><button type="button" class="button" onclick="algorithm.buy(1)">Predictive Algorithm</button>&nbsp;<span id="algorithm">0</span></p>
 						<p><span id="algorithmInfo">$6.25e+7, 10,000 M/s</span></p>
 					</div>
+					<!-- VR Suit div -->
+					<div id="vrsuitDiv" style="margin: 0;">
+						<p><button type="button" class="button" onclick="vrsuit.buy(1)">VR Suit</button>&nbsp;<span id="vrsuit">0</span></p>
+						<p><span id="vrsuitInfo">$10, 1 M/s</span></p>
+					</div>
+					<!-- Clone Factory div -->
+					<div id="factoryDiv">
+						<p><button type="button" class="button" onclick="factory.buy(1)">Clone Factory</button>&nbsp;<span id="factory">0</span></p>
+						<p><span id="factoryInfo">$500, 10 M/s</span></p>
+					</div>
+					<!-- Terraformer div -->
+					<div id="terraDiv">
+						<p><button type="button" class="button" onclick="terra.buy(1)">Terraformer</button>&nbsp;<span id="terra">0</span></p>
+						<p><span id="terraInfo">$25,000, 100 M/s</span></p>
+					</div>
+					<!-- Dyson Sphere div -->
+					<div id="dysonDiv">
+						<p><button type="button" class="button" onclick="dyson.buy(1)">Dyson Sphere</button>&nbsp;<span id="dyson">0</span></p>
+						<p><span id="dysonInfo">$1.25e+6, 1,000 M/s</span></p>
+					</div>
+					<!-- FTL Engine div -->
+					<div id="ftlDiv">
+						<p><button type="button" class="button" onclick="ftl.buy(1)">FTL Engine</button>&nbsp;<span id="ftl">0</span></p>
+						<p><span id="ftlInfo">$6.25e+7, 10,000 M/s</span></p>
+					</div>
 				</div>
 				<!-- Research commodities, mid-left column with button to download data -->
 				<div id="research">
@@ -111,6 +136,31 @@
 						<p><button type="button" class="button" onclick="nobel.buy(1)">Nobel Laureate</button>&nbsp;<span id="nobel">0</span></p>
 						<p><span id="nobelInfo">$3e+8, 10,000 K/s</span></p>
 					</div>
+					<!-- Test Tube PhD div -->
+					<div id="tubeDiv">
+						<p><button type="button" class="button" onclick="tube.buy(1)">Test Tube Ph.D.</button>&nbsp;<span id="tube">0</span></p>
+						<p><span id="tubeInfo">$50, 1 K/s</span></p>
+					</div>
+					<!-- Dijkstra Clone div -->
+					<div id="cloneDiv">
+						<p><button type="button" class="button" onclick="clone.buy(1)">Dijkstra Clone</button>&nbsp;<span id="clone">0</span></p>
+						<p><span id="cloneInfo">$1000, 10 K/s</span></p>
+					</div>
+					<!-- Training Construct div -->
+					<div id="constructDiv">
+						<p><button type="button" class="button" onclick="construct.buy(1)">Training Construct</button>&nbsp;<span id="construct">0</span></p>
+						<p><span id="constructInfo">$125,000, 100 K/s</span></p>
+					</div>
+					<!-- Optimizer div -->
+					<div id="optimizerDiv">
+						<p><button type="button" class="button" onclick="optimizer.buy(1)">Optimizer</button>&nbsp;<span id="optimizer">0</span></p>
+						<p><span id="optimizerInfo">$6.25e+6, 1,000 K/s</span></p>
+					</div>
+					<!-- Mechanized Brain div -->
+					<div id="brainDiv">
+						<p><button type="button" class="button" onclick="brain.buy(1)">Mechanized Brain</button>&nbsp;<span id="brain">0</span></p>
+						<p><span id="brainInfo">$3e+8, 10,000 K/s</span></p>
+					</div>
 				</div>
 				<!-- Computing commodities, mid-right column with button to delete save-->
 				<div id="computing" style="width: 250px;">
@@ -125,7 +175,7 @@
 						<p><button type="button" class="button" onclick="eniac.buy(1)">ENIAC</button>&nbsp;<span id="eniac">0</span></p>
 						<p><span id="eniacInfo">$200, 5 M/s, 500 F/s</span></p>
 					</div>
-					<!-- AppleII div -->
+					<!-- Apple II div -->
 					<div id="appleDiv">
 						<p><button type="button" class="button" onclick="apple.buy(1)">Apple II</button>&nbsp;<span id="apple">0</span></p>
 						<p><span id="appleInfo">$5000, 50 M/s, 5,000 F/s</span></p>
@@ -144,6 +194,31 @@
 					<div id="dwaveDiv">
 						<p><button type="button" class="button" onclick="dwave.buy(1)">D-Wave 2000Q</button>&nbsp;<span id="dwave">0</span></p>
 						<p><span id="dwaveInfo">$1.25e+9, 50,000 M/s, 5e+6 F/s</span></p>
+					</div>
+					<!-- Quantum Cluster div -->
+					<div id="clusterDiv">
+						<p><button type="button" class="button" onclick="cluster.buy(1)">Quantum Cluster</button>&nbsp;<span id="cluster">0</span></p>
+						<p><span id="clusterInfo">$200, 5 M/s, 500 F/s</span></p>
+					</div>
+					<!-- Stochastic Machine div -->
+					<div id="appleDiv">
+						<p><button type="button" class="button" onclick="machine.buy(1)">Stochastic Machine</button>&nbsp;<span id="machine">0</span></p>
+						<p><span id="machineInfo">$5000, 50 M/s, 5,000 F/s</span></p>
+					</div>
+					<!-- Automatic Parallelizer div -->
+					<div id="parallelDiv">
+						<p><button type="button" class="button" onclick="parallel.buy(1)">Automatic Parallelizer</button>&nbsp;<span id="parallel">0</span></p>
+						<p><span id="parallelInfo">$500,000, 500 M/s, 50,000 F/s</span></p>
+					</div>
+					<!-- Physics Breaker div -->
+					<div id="breakerDiv">
+						<p><button type="button" class="button" onclick="breaker.buy(1)">Physics Breaker</button>&nbsp;<span id="breaker">0</span></p>
+						<p><span id="breakerInfo">$2.5e+7, 5,000 M/s, 500,000 F/s</span></p>
+					</div>
+					<!-- General AI div -->
+					<div id="aiDiv">
+						<p><button type="button" class="button" onclick="ai.buy(1)">General AI</button>&nbsp;<span id="ai">0</span></p>
+						<p><span id="aiInfo">$1.25e+9, 50,000 M/s, 5e+6 F/s</span></p>
 					</div>
 				</div>
 				<!-- Projects, right column -->

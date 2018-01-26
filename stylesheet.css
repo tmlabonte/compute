@@ -35,14 +35,14 @@ hr {
   background: black;
 }
 p.console {
-    font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+    font-family: "Lucida Sans Typewriter", "Lucida Console", "Monaco", "Bitstream Vera Sans Mono", monospace;
     font-size: 18px;
     color: white;
     margin-top: 0;
     line-height: 100%
 }
 p.consoleOld {
-    font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+    font-family: "Lucida Sans Typewriter", "Lucida Console", "Monaco", "Bitstream Vera Sans Mono", monospace;
     font-size: 14px;
     color: grey;
     margin-bottom: 0;
