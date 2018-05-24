@@ -277,7 +277,7 @@ class System {
 		}
 
 		//Update cost and perSec display values of all commodities
-		for (var i=0; i<30; i++) {
+		for (var i=0; i<15; i++) {
 			commodities[i].setInnerHtmlForInfo();
 		}
 	}
