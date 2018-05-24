@@ -81,7 +81,7 @@ var theories = [the0, the1, the2, the3, the4, the5];
 //Window refreshes every 0.1 seconds with updated values and displays; also updates data and saves
 window.setInterval(function(){
 	if (System.transition) {
-		for (var i=0; i<30; i++) {
+		for (var i=0; i<15; i++) {
 			System.decreaseForFuture(i);
 		}
 		
